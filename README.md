@@ -1,6 +1,6 @@
 # Title
 
-**do not publish this please. It is still a draft*
+**do not publish this please. It is still a draft**
 
 ## Description (mandatory)
 

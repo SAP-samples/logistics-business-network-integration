@@ -7,12 +7,11 @@
 # How To Integrate with SAP LBN APIs - Step by Step Guide
 
 
-![](Update/Logo DSC.png)
 
 **You can also opt in for SAP Professional Services to help guid you through the process,
 please contact us via ICC@SAP.COM**
 
-![](selfvsenterprisAPI.png)
+![](Upload/selfvsenterprisAPI.png)
 
 ![](Upload/slide4github.jpg)
 

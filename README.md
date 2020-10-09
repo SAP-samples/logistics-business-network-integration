@@ -48,6 +48,9 @@ Type	Name	Latest commit message	Commit time
 
 ![](Upload/2.png)
 
+NEW PROCESS FROM LEON, central e-mail for tenant request - NEED TO BE REFLECTED IN HERE
+ADD ALSO SLIDES FROM NATALIE FOR TENANT TYPE EXPLANATION.
+
 To be able to communicate to LBN carriers or network partners have to request for a free test B2B account. Click on the below link and follow the steps in the [link](https://www.sapstore.com/solutions/46401/) to request for a new B2B test account in LBN.
 
 

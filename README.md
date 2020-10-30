@@ -28,7 +28,7 @@ please contact us via ICC@SAP.COM**
 Type	Name	Latest commit message	Commit time
 
 * (Sabine) general overview <link>
-* (Ravish) api overview <link>
+
 * partner edge <link>
 
 ## 1.) Get yourself familiar with SAP LBN and APIs
@@ -36,6 +36,7 @@ Type	Name	Latest commit message	Commit time
 ![](Upload/Picture1.png)
 
 - API Links
+* (Ravish) api overview <link>
   
   [Consumer API for Dock Appointment Scheduling](https://api.sap.com/api/GenericAppointment_Out/overview)
 

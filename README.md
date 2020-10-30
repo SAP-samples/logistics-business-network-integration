@@ -92,6 +92,8 @@ Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b
 
 To be able to communicate to LBN carriers or network partners have to request for a free productive account. Click on the [link](https://www.sapstore.com/solutions/46399/) and follow the steps in the link to request for a new productive account in LBN.
 
+https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_87fynq6n
+
 (Ravish)
 * Request access to LBN endpoint for productive tenant
 

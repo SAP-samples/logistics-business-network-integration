@@ -25,6 +25,9 @@ please contact us via ICC@SAP.COM**
 
 ![](Upload/0.png)
 
+![](Upload/SAP_LBN_FC_FOR_CARRIERS.pptx)
+![](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pptx) 
+
 Type	Name	Latest commit message	Commit time
 
 (NORA 04.11.2020)

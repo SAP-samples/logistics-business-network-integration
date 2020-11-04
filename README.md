@@ -52,11 +52,35 @@ Type	Name	Latest commit message	Commit time
 
 License 8007828 – Free of Charge *Test tenant to develop & test connectivitywith standard LBN APIs* 
 
-![](Upload/Screenshot.png) 
+ 
 
+![](Upload/Screenshot3.png) 
 
 * For Partner Integration phase: Mapping to SAP LBN APIs & end-to-end testing for both Freight Collaboration & Global Track and Trace options 
 * Also for Customer Testing / implementation project with testing of integration to the partner network
+
+
+![](Upload/Screenshot.png)
+* License Coverage Details
+* SAP Logistics Business Network B2B Test Tenant for carriers and network partners
+* License to set-up B2B connections for
+  * Mapping to SAP Logistics Business Network standard APIs
+  * Integration testing 
+  * Set-up and testing of B2B connections with SAP Logistics Business Network shipper customer test tenants
+* An unlimited number of connections 
+* Related usage of SAP Cloud Identity and SAP Fiori
+* Standard SAP cloud support for SAP Logistics Business Network and standard APIs
+
+Order the B2B Test Tenant 
+* On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
+* In the SAP Store via Hyperlink here
+* Or via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
+
+
+
+
+
+
 
 (NORA 04.11.2020) (Joy/Baoning, Leon)
 NEW PROCESS FROM LEON, central e-mail for tenant request - NEED TO BE REFLECTED IN HERE

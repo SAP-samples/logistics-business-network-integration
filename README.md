@@ -48,6 +48,12 @@ Type	Name	Latest commit message	Commit time
 
 ![](Upload/2.png)
 
+### API Mapping & Testing ###
+
+License 8007828 – Free of Charge *Test tenant to develop & test connectivitywith standard LBN APIs* 
+* For Partner Integration phase: Mapping to SAP LBN APIs & end-to-end testing for both Freight Collaboration & Global Track and Trace options 
+* Also for Customer Testing / implementation project with testing of integration to the partner network
+
 (NORA 04.11.2020) (Joy/Baoning, Leon)
 NEW PROCESS FROM LEON, central e-mail for tenant request - NEED TO BE REFLECTED IN HERE
 ADD ALSO SLIDES FROM NATALIE FOR TENANT TYPE EXPLANATION.

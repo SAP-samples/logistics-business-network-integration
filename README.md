@@ -27,6 +27,7 @@ please contact us via ICC@SAP.COM**
 
 Type	Name	Latest commit message	Commit time
 
+(NORA 04.11.2020)
 * (Sabine) general overview <link>
 
 * partner edge <link>
@@ -44,7 +45,7 @@ Type	Name	Latest commit message	Commit time
 
 ![](Upload/2.png)
 
-(Joy/Baoning, Leon)
+(NORA 04.11.2020) (Joy/Baoning, Leon)
 NEW PROCESS FROM LEON, central e-mail for tenant request - NEED TO BE REFLECTED IN HERE
 ADD ALSO SLIDES FROM NATALIE FOR TENANT TYPE EXPLANATION.
 
@@ -88,7 +89,7 @@ Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b
 
 ![](Upload/5.png)
 
-(Joy/Baoning/Leon)
+(NORA 04.11.2020) (Joy/Baoning/Leon)
 * Get onboarded to LBN productive tenant
 
 To be able to communicate to LBN carriers or network partners have to request for a free productive account. Click on the [link](https://www.sapstore.com/solutions/46399/) and follow the steps in the link to request for a new productive account in LBN.

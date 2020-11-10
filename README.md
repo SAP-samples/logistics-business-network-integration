@@ -28,10 +28,7 @@ please contact us via ICC@SAP.COM**
 ![](Upload/SAP_LBN_FC_FOR_CARRIERS.pptx)
 ![](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pptx) 
 
-Type	Name	Latest commit message	Commit time
-
-(NORA 04.11.2020)
-* (Sabine) general overview <link>
+[Click here](https://video.sap.com/media/t/1_kse4obrb)  to view a video introduction session for the LBN Network
 
 * partner edge <link>
 

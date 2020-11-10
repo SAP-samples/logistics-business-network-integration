@@ -25,10 +25,17 @@ please contact us via ICC@SAP.COM**
 
 ![](Upload/0.png)
 
-![](Upload/SAP_LBN_FC_FOR_CARRIERS.pptx)
-![](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pptx) 
+![](Upload/whatisLBN.png)
 
-[Click here](https://video.sap.com/media/t/1_kse4obrb)  to view a video introduction session for the LBN Network
+[Click here](https://video.sap.com/media/t/1_kse4obrb)  to view a video introduction session for the LBN Network!
+
+![](Upload/whatcanyoudoascarrier.png) 
+
+[Click here](https://video.sap.com/media/1_qq1yokp7) to view a video introduction for API enabled carriers!
+
+
+Feel free to click through [these slides](
+
 
 * partner edge <link>
 

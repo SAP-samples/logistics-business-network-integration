@@ -62,7 +62,7 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivitywi
 
 ![](Upload/Screenshot.png)
 * License Coverage Details
-* SAP Logistics Business Network B2B Test Tenant for carriers and network partners
+* SAP Logistics Business Network B2B Test Tenant for carriers and network partners
 * License to set-up B2B connections for
   * Mapping to SAP Logistics Business Network standard APIs
   * Integration testing 
@@ -72,7 +72,7 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivitywi
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
 Order the B2B Test Tenant 
-* On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
+* On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
 * In the SAP Store via Hyperlink here
 * Or via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
 

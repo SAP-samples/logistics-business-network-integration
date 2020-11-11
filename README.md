@@ -33,8 +33,10 @@ please contact us via ICC@SAP.COM**
 
 [Click here](https://video.sap.com/media/1_qq1yokp7) to view a video introduction for API enabled carriers!
 
+Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks.
 
-Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf)
+[These slides](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
+
 
 
 

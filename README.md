@@ -55,20 +55,16 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 ![](Upload/2.png)
 
-### API Mapping & Testing ###
+### A. API Mapping & Testing ###
 
 License 8007828 – Free of Charge *Test tenant to develop & test connectivitywith standard LBN APIs* 
-
- 
-
 ![](Upload/Screenshot3.png) 
 
 * For Partner Integration phase: Mapping to SAP LBN APIs & end-to-end testing for both Freight Collaboration & Global Track and Trace options 
 * Also for Customer Testing / implementation project with testing of integration to the partner network
 
-
 ![](Upload/Screenshot.png)
-* License Coverage Details
+### B. License Coverage Details
 * SAP Logistics Business Network B2B Test Tenant for carriers and network partners
 * License to set-up B2B connections for
   * Mapping to SAP Logistics Business Network standard APIs
@@ -78,10 +74,10 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivitywi
 * Related usage of SAP Cloud Identity and SAP Fiori
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
-Order the B2B Test Tenant 
+### C. Order the B2B Test Tenant 
 * On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
-* In the SAP Store via Hyperlink here
-* Or via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
+* In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
+* Or [via URL:](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
 
 
 
@@ -133,8 +129,8 @@ Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b
 
 ![](Upload/5.png)
 
-
 ![](Upload/Screenshotproductive1.png)
+### A. Customer Connectivity
 License 8007133 – Free of charge
 **Productive tenant for connectivity and transaction processing / data sharing with shippers*** 
 * Covers both Freight Collaboration & Global Track and Trace options
@@ -143,11 +139,11 @@ License 8007133 – Free of charge
 
 
 ![](Upload/Schreenshotproductive2.png)
-### License Coverage Details
+### B. License Coverage Details
 
 * SAP Logistics Business Network membership as a carrier or network partner
 * License to collaborate / transact with connected shipper customers via the SAP Logistics Business Network for:
-  *Freight Requests for Quotation and freight order confirmation / rejectiion 
+  * Freight Requests for Quotation and freight order confirmation / rejectiion 
   * Order tracking 
   * Web-based access for documents exchange
 * An unlimited number of connections 
@@ -156,10 +152,10 @@ License 8007133 – Free of charge
 
 
 ![](Upload/Screenshotproductive3.png)
-I. Request Productive Membership Invitation: 
+### C.1  Request Productive Membership Invitation: 
 * On completion of mapping and integration testing only
 * Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
-II.  Order the Basic Membership License
+### C.2   Order the Basic Membership License
 * In the SAP Store via Hyperlink here
 * Or via URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
 * Using your purchase order number provided in the invitation email sent from network enablement 

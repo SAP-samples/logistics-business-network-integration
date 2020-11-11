@@ -155,11 +155,11 @@ License 8007133 – Free of charge
 ![](Upload/Screenshotproductive3.png)
 I. Request Productive Membership Invitation: 
 * On completion of mapping and integration testing only
-* Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
+* Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
 II.  Order the Basic Membership License
 * In the SAP Store via Hyperlink here
-* Or via URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
-* Using your purchase order number provided in the invitationemail sent from network enablement 
+* Or via URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
+* Using your purchase order number provided in the invitation email sent from network enablement 
 
 
 

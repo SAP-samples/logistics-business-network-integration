@@ -55,9 +55,12 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 ![](Upload/2.png)
 
+
 ### A. API Mapping & Testing ###
 
 License 8007828 – Free of Charge *Test tenant to develop & test connectivitywith standard LBN APIs* 
+
+
 ![](Upload/Screenshot3.png) 
 
 * For Partner Integration phase: Mapping to SAP LBN APIs & end-to-end testing for both Freight Collaboration & Global Track and Trace options 

@@ -52,9 +52,9 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
   [Consumer API for Dock Appointment Scheduling](https://api.sap.com/api/GenericAppointment_Out/overview)
 
 
-![](Upload/2.png)
-## 2.) Request Tenant and Technical User
 
+## 2.) Request Tenant and Technical User
+![](Upload/2.png)
 
 ![](Upload/Screenshot3.png) 
 ### A. API Mapping & Testing ###

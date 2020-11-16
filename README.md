@@ -27,7 +27,7 @@ please contact us via ICC@SAP.COM**
 
 ![](Upload/whatisLBN.png)
 
-[Click here](https://video.sap.com/media/t/1_kse4obrb)  to view a video introduction session for the LBN Network!
+[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5)  to view a video introduction session for the LBN Network!
 
 ![](Upload/whatcanyoudoascarrier.png) 
 

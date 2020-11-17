@@ -30,6 +30,7 @@ please contact us via ICC@SAP.COM**
 
 
 ![](Upload/whatcanyoudoascarrier.png) 
+
 [Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5)  to view a video introduction to the LBN for API enabled carriers!
 
 Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks.

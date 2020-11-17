@@ -26,11 +26,11 @@ please contact us via ICC@SAP.COM**
 ![](Upload/0.png)
 
 ![](Upload/whatisLBN.png)
-[Click here](hhttps://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) o view a video introduction session for the LBN Network!
+[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) to view a video introduction session for the LBN Network - an introduction for carrier networks!
 
 
 ![](Upload/whatcanyoudoascarrier.png) 
-[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5)  to view a video introduction for API enabled carriers!
+[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5)  to view a video introduction to the LBN for API enabled carriers!
 
 Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks.
 

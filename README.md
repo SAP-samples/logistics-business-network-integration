@@ -187,8 +187,8 @@ The [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1
 
 The step above is same as the one you have request for test access. But the OAuth ID and secret will be separate for productive access.
 
-(Ravish)
-* Configure system connection in LBN for productive tenant
+
+* Configure system connection in LBN for productive tenant.Repeat the activities carried out on System connection App in the test tenant ( [Click here](https://video.sap.com/media/t/1_igc0uy3u) ). This time maintain your productive URL
 
 Follow activities as done in step 6 to your productive URLs
 

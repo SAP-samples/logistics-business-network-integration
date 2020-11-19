@@ -98,7 +98,7 @@ ADD ALSO SLIDES FROM NATALIE FOR TENANT TYPE EXPLANATION.
 To be able to communicate to LBN carriers or network partners have to request for a free test B2B account. Click on the below link and follow the steps in the [link](https://www.sapstore.com/solutions/46401/) to request for a new B2B test account in LBN.
 
 
-After completion of your request, you will be provided with a login URL to SAP LBN and also credentials. Please use these URL and credentials to access LBN UIs and for maintaining configurations. You may refere this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
+After completion of your request, you will be provided with a login URL to SAP LBN and also credentials. Please use these URL and credentials to access LBN UIs and for maintaining configurations. 
 
 
 
@@ -113,7 +113,7 @@ https://github.wdf.sap.corp/D055590/logistics-business-network-integration/blob/
 
 https://github.wdf.sap.corp/D055590/logistics-business-network-integration/blob/master/P44%20Visibility%20Tracking%20FTL%20End2End%20Testing.postman_environment.json
 
-When the API s are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. 
+When the API s are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
 
 For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident. Use the application component - SCM-LBN-INT in [sap support portal](support.sap.com) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 

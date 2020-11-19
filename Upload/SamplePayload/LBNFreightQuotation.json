@@ -1,0 +1,14 @@
+{
+    "requestForQuotationId": "4500015654",
+    "senderSystemId": "QM7_910",
+    "orderingPartyLbnId": "100000XX",
+    "externalQuotationId": "8363373820",
+    "informationRest": {
+        "lastChangeDateTime": "2020-09-28T08:20:02.644Z"
+    },
+    "noteRest": {
+        "text": "Expiration Date/Time UTC: 29.09.2020 08:19:57 "
+    },
+    "priceProposal": 579.0,
+    "priceProposalCurrency": "EUR"
+}

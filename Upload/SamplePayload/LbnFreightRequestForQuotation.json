@@ -1,0 +1,184 @@
+{
+  "freightRequestForQuotationId" : "4500012073",
+  "orderingPartyLbnId" : "100000xx",
+  "carrierPartyLbnId" : "100000xx",
+  "originatorId" : "QM7_910",
+  "status" : "01",
+  "freightOrderId" : "6100065936",
+  "totalGrossWeight" : {
+    "value" : 233,
+    "unit" : "KGM"
+  },
+  "totalGrossVolume" : {
+    "value" : 3000,
+    "unit" : "LTR"
+  },
+  "totalDistance" : {
+    "value" : 269.915165,
+    "unit" : "KMT"
+  },
+  "totalDuration" : {
+    "value" : "PT97H"
+  },
+  "totalNumberOfStops" : 2,
+  "totalNumberOfLoadingLocations" : 1,
+  "totalNumberOfUnloadingLocations" : 1,
+  "dangerousGoods" : false,
+  "temperatureRequirements" : false,
+  "priceNegotiable" : true,
+  "datesNegotiable" : true,
+  "responseRequired" : true,
+  "responseDeadlineDateTime" : "2020-04-06T14:02:10Z",
+  "limitPrice" : {
+    "value" : 500,
+    "currency" : "EUR"
+  },
+  "transportMeansTypeCode" : "",
+  "transportMeansDescriptionCode" : "",
+  "shippingTypeCode" : "18",
+  "orderingParty" : {
+    "lbnId" : "10000005",
+    "address" : {
+      "name" : "Purchase Org ",
+      "street" : "Hauptstrasse",
+      "house" : "1",
+      "city" : "Walldorf",
+      "region" : "08",
+      "country" : "DE",
+      "postalCode" : "69190",
+      "phoneNumber" : {
+        "areaId" : "",
+        "subscriberId" : "456789",
+        "extensionId" : "6227",
+        "countryDialingCode" : "49"
+      },
+      "emailAddress" : "carrier@carrier.com",
+      "longitude" : {},
+      "latitude" : {}
+    }
+  },
+  "transportationStages" : [
+    {
+      "id" : 1,
+      "sequenceNumber" : 1,
+      "loadingLocationTimezone" : "CET",
+      "unloadingLocationTimezone" : "CET",
+      "distance" : {
+        "value" : 269.915165,
+        "unit" : "KMT"
+      },
+      "totalDuration" : {
+        "value" : "PT3H22M26S"
+      },
+      "departureDateTime" : "2019-11-11T16:00:00Z",
+      "arrivalDateTime" : "2019-11-15T17:00:00Z",
+      "loadingLocation" : {
+        "id" : "LBN_MANNHEIM",
+        "timeZone" : "CET",
+        "address" : {
+          "name" : "Sweets Johann",
+          "street" : "Friedrichsplatz",
+          "house" : "10",
+          "city" : "Mannheim",
+          "region" : "",
+          "country" : "DE",
+          "postalCode" : "68811",
+          "phoneNumber" : {
+            "areaId" : "672",
+            "subscriberId" : "123333",
+            "extensionId" : "",
+            "countryDialingCode" : "49"
+          },
+          "emailAddress" : "test@test.com",
+          "longitude" : {
+            "value" : 8.48333333333333
+          },
+          "latitude" : {
+            "value" : 49.45
+          }
+        }
+      },
+      "unloadingLocation" : {
+        "id" : "LBN_MUNICH",
+        "timeZone" : "CET",
+        "address" : {
+          "name" : "Sweets Ludwig",
+          "street" : "Zeppelinweg",
+          "house" : "2",
+          "city" : "München",
+          "region" : "09",
+          "country" : "DE",
+          "postalCode" : "85300",
+          "phoneNumber" : {
+            "areaId" : "089",
+            "subscriberId" : "12345",
+            "extensionId" : "",
+            "countryDialingCode" : "49"
+          },
+          "emailAddress" : "test1@test1.mue",
+          "longitude" : {
+            "value" : 11.57755
+          },
+          "latitude" : {
+            "value" : 48.13642
+          }
+        }
+      },
+      "assignedItems" : [
+        "10"
+      ]
+    }
+  ],
+  "notes" : [],
+  "items" : [
+    {
+      "id" : "10",
+      "categoryCode" : "PKG",
+      "packageTypeCode" : "PF",
+      "insuranceDeclaredAmount" : {},
+      "description" : "Euro Pallet",
+      "dangerousGoods" : false,
+      "grossWeight" : {
+        "value" : 200,
+        "unit" : "KGM"
+      },
+      "grossVolume" : {
+        "value" : 3,
+        "unit" : "MTQ"
+      },
+      "pieces" : {
+        "value" : 10,
+        "unit" : "PF"
+      },
+      "length" : {
+        "value" : 1.219,
+        "unit" : "MTR"
+      },
+      "width" : {
+        "value" : 1.016,
+        "unit" : "MTR"
+      },
+      "height" : {
+        "value" : 1.4,
+        "unit" : "MTR"
+      },
+      "temperatureRequirement" : {
+        "lowerBoundary" : {},
+        "upperBoundary" : {}
+      },
+      "stackable" : true,
+      "highValue" : false,
+      "oversize" : false,
+      "shipFromLocationId" : "LBN_MANNHEIM",
+      "shipToLocationId" : "LBN_MUNICH"
+    }
+  ],
+  "businessDocumentReferences" : [
+    {
+      "id" : "6100065936",
+      "typeCode" : "1122",
+      "itemId" : "",
+      "itemTypeCode" : ""
+    }
+  ]
+}

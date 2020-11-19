@@ -1,0 +1,39 @@
+{
+    "shipper": {
+        "shipperLBNID": "100000xx"
+    },
+    "carrier": {
+        "carrierLBNID": "100000yy"
+    },
+    "networkPartner": {
+        "networkPartnerLBNID": "100000zz"
+    },
+    "technicalId": "xri://sap.com/id:LBN#100000xx:SYS_xxx:FreightOrder:300013851:FC",
+    "creationDateTimeUTC": "2020-10-20T12:31:28Z",
+    "events": [
+        {
+            "natureOfEvent": "02",
+            "eventType": "POD",
+            "eventReasonDescription": "linktoPOD.png",
+            "stopId": "2",
+            "transportMeans": {
+                "trackedObjects": null
+            },
+            "location": {
+                "address": {
+                    "city": "Tokyo",
+                    "country": "JP",
+                    "postalCode": "1638001",
+                    "name": "Port of Tokyo Japan",
+                    "street": "Nishishinjuku 2-chome Shinjuku-ku"
+                },
+                "latitude": 36.11048,
+                "longitude": 120.35569,
+                "locationType": "3003"
+            },
+            "eventDateTimeUTC": "2020-10-20T12:26:16Z",
+            "eventTimeZone": "UTC",
+            "estimatedArrival": null
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "freightOrderId": "6100073197",
+    "senderSystemId": "QM7_910",
+    "orderingPartyLbnId": "100000xx",
+    "carrierLbnId": "100000xx",
+    "informationRest": {
+        "lastChangeDateTime": "2020-09-18T06:02:05.295Z"
+    }
+}

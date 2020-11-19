@@ -1,0 +1,108 @@
+{
+    "technicalId": "xri://sap.com/id:LBN#10000042:QM7_910:FreightOrder:300013851:FC",
+    "shipper": {
+        "shipperLBNID": "100000xx"
+    },
+    "carrier": {
+        "carrierLBNID": "100000yy"
+    },
+    "networkPartner": {
+        "networkPartnerLBNID": "100000zz"
+    },
+    "creationDateTimeUTC": "2020-10-20T11:21:01.277Z",
+    "shipment": {
+        "orderId": "300013851",
+        "transportationMode": "03",
+        "transportMeans": {
+            "transportMeansStandardCode": "31",
+            "trackedObjects": []
+        },
+        "dangerousGoodsIndicator": false,
+        "carrierReferenceDocument": [
+            {
+                "type": "BN",
+                "value": "300013851"
+            },
+            {
+                "type": "T50",
+                "value": "300013851"
+            }
+        ],
+        "shippingType": "18",
+        "documentReference": [
+            {
+                "type": "BN",
+                "value": "300013851"
+            },
+            {
+                "type": "T50",
+                "value": "300013851"
+            }
+        ],
+        "totalNumberOfStops": 2,
+        "stops": [
+            {
+                "stopId": "1",
+                "ordinalNo": 1,
+                "location": {
+                    "Id": "xri://sap.com/id:LBN#100000xx:SYS_xxx:FreightOrder:300013851:FC",
+                    "address": {
+                        "city": "Qingdao",
+                        "country": "CN",
+                        "house": "208",
+                        "name": "Port of Qingdao China",
+                        "phoneNumber": "--",
+                        "postalCode": "123456",
+                        "region": "50",
+                        "street": "Street 1"
+                    },
+                    "UNLOCODE": "CNQIN",
+                    "timeZone": "UTC+8",
+                    "latitude": 36.11048000,
+                    "longitude": 120.35569000
+                },
+                "plannedEvents": [
+                    {
+                        "eventType": "DEPARTURE",
+                        "plannedStartDateTimeUTC": "2021-09-23T21:50:00Z",
+                        "plannedEndDateTimeUTC": "2021-09-23T22:10:00Z"
+                    }
+                ]
+            },
+            {
+                "stopId": "2",
+                "ordinalNo": 2,
+                "location": {
+                    "Id": "xri://sap.com/id:LBN#10000042:QM7_910:Location:LogisticLocation:ZAL-JPTYO",
+                    "address": {
+                        "city": "Tokyo",
+                        "country": "JP",
+                        "house": "8-1",
+                        "name": "Port of Tokyo Japan",
+                        "phoneNumber": "--",
+                        "postalCode": "1638001",
+                        "street": "Nishishinjuku 2-chome Shinjuku-ku"
+                    },
+                    "UNLOCODE": "JPTYO",
+                    "timeZone": "UTC+9",
+                    "latitude": 35.68880999,
+                    "longitude": 139.65871999
+                },
+                "plannedEvents": [
+                    {
+                        "eventType": "ARRIV_DEST",
+                        "plannedStartDateTimeUTC": "2021-09-23T21:50:00Z",
+                        "plannedEndDateTimeUTC": "2021-09-23T22:10:00Z"
+                    }
+                ]
+            }
+        ],
+        "stages": [
+            {
+                "stageId": "10",
+                "loadingStopId": "10",
+                "unloadingStopId": "20"
+            }
+        ]
+    }
+}

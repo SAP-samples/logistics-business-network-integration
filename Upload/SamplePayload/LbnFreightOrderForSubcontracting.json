@@ -1,0 +1,174 @@
+{
+    "status": "01",
+    "totalGrossWeight": {
+        "value": 600.0,
+        "unit": "KGM"
+    },
+    "totalGrossVolume": {
+        "value": 3.0,
+        "unit": "MTQ"
+    },
+    "totalDistance": {
+        "value": 7616.738968,
+        "unit": "KMT"
+    },
+    "totalDuration": {
+        "value": "PT10H30M"
+    },
+    "totalNumberOfStops": 2,
+    "totalNumberOfLoadingLocations": 1,
+    "totalNumberOfUnloadingLocations": 1,
+    "dangerousGoods": false,
+    "temperatureRequirements": false,
+    "priceNegotiable": false,
+    "responseRequired": false,
+    "limitPrice": {},
+    "totalChargesAmount": {},
+    "awardedPrice": {},
+    "orderingParty": {
+        "lbnId": "10000001",
+        "address": {
+            "name": "Chocolate Schmitz SE",
+            "street": "Sonnengraben",
+            "house": "10",
+            "city": "Mannheim",
+            "region": "08",
+            "country": "DE",
+            "postalCode": "68159",
+            "phoneNumber": {
+                "areaId": "621",
+                "subscriberId": "654646",
+                "extensionId": "",
+                "countryDialingCode": "49"
+            },
+            "emailAddress": "test1@test1.com",
+            "longitude": {},
+            "latitude": {}
+        }
+    },
+    "transportMeansTypeCode": "1",
+    "transportMeansDescriptionCode": "",
+    "shippingTypeCode": "",
+    "transportationStages": [
+        {
+            "id": 1,
+            "sequenceNumber": 1,
+            "loadingLocationTimezone": "CET",
+            "unloadingLocationTimezone": "EST",
+            "distance": {
+                "value": 7616.738968,
+                "unit": "KMT"
+            },
+            "totalDuration": {
+                "value": "PT95H12M33S"
+            },
+            "departureDateTime": "2021-12-02T13:30:00Z",
+            "arrivalDateTime": "2021-12-04T19:00:00Z",
+            "loadingLocation": {
+                "id": "LBN_HAMBURG",
+                "timeZone": "CET",
+                "address": {
+                    "name": "Chocolate GmbH",
+                    "street": "Tesdorpfstra\u00dfe",
+                    "house": "8",
+                    "city": "Hamburg",
+                    "region": "",
+                    "country": "DE",
+                    "postalCode": "20148",
+                    "phoneNumber": {
+                        "areaId": "040",
+                        "subscriberId": "227070",
+                        "extensionId": "",
+                        "countryDialingCode": "49"
+                    },
+                    "emailAddress": "test@test.com",
+                    "longitude": {
+                        "value": 9.0
+                    },
+                    "latitude": {
+                        "value": 51.0
+                    }
+                }
+            },
+            "unloadingLocation": {
+                "id": "DELICIOUS_SWEETS",
+                "timeZone": "EST",
+                "address": {
+                    "name": "",
+                    "street": "Jupiter Blvd",
+                    "house": "1",
+                    "city": "Palm Bay",
+                    "region": "FL",
+                    "country": "US",
+                    "postalCode": "32909",
+                    "phoneNumber": {
+                        "areaId": "",
+                        "subscriberId": "",
+                        "extensionId": "",
+                        "countryDialingCode": ""
+                    },
+                    "emailAddress": "",
+                    "longitude": {
+                        "value": -80.68444444444445
+                    },
+                    "latitude": {
+                        "value": 27.98777777777778
+                    }
+                }
+            },
+            "assignedItems": [
+                "10"
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "text": "test\n"
+        }
+    ],
+    "items": [
+        {
+            "id": "10",
+            "categoryCode": "PRD",
+            "packageTypeCode": "",
+            "insuranceDeclaredAmount": {},
+            "description": "Frozen Fish",
+            "dangerousGoods": false,
+            "grossWeight": {
+                "value": 600.0,
+                "unit": "KGM"
+            },
+            "grossVolume": {
+                "value": 3.0,
+                "unit": "MTQ"
+            },
+            "pieces": {
+                "value": 1.0,
+                "unit": "PF"
+            },
+            "length": {
+                "unit": ""
+            },
+            "width": {
+                "unit": ""
+            },
+            "height": {
+                "unit": ""
+            },
+            "temperatureRequirement": {
+                "lowerBoundary": {},
+                "upperBoundary": {}
+            },
+            "stackable": false,
+            "highValue": false,
+            "oversize": false,
+            "shipFromLocationId": "LBN_HAMBURG",
+            "shipToLocationId": "DELICIOUS_SWEETS"
+        }
+    ],
+    "businessDocumentReferences": [],
+    "freightOrderId": "6100004869",
+    "orderingPartyLbnId": "10000001",
+    "originatorId": "KV5_751",
+    "carrierPartyLbnId": "10000269"
+}

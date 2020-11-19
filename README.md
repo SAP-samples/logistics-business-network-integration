@@ -107,11 +107,7 @@ After completion of your request, you will be provided with a login URL to SAP L
 
 ![](Upload/3.png)
 
-- Postman Example (Ravish)
-
-https://github.wdf.sap.corp/D055590/logistics-business-network-integration/blob/master/P44%20Visibility%20Tracking%20FTL%20End2End%20TestCase.postman_collection.json
-
-https://github.wdf.sap.corp/D055590/logistics-business-network-integration/blob/master/P44%20Visibility%20Tracking%20FTL%20End2End%20Testing.postman_environment.json
+You may use these [sample payload](Upload/SamplePayload/) to build your mappings and endpoints.
 
 When the API s are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
 
@@ -133,7 +129,7 @@ Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b
 
 ![](Upload/4.png)
 
-- Ravish (Hardcoded Test Payload & Endpoint)
+- To test , you can generate an test call from the system connection app. you may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload
 
 ## 5.) Release for Productive Usage
 

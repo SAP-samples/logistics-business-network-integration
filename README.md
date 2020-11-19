@@ -46,11 +46,13 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 ![](Upload/Picture1.png)
 
-- API Links
-* (Ravish) api overview <link>
-  
-  [Consumer API for Dock Appointment Scheduling](https://api.sap.com/api/GenericAppointment_Out/overview)
+- All API are document in in SAP API hub. To view relevenat api's click on the [link](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on Type 'Rest' 
 
+- View this video to get an over of the APIs used [Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2)
+Additionally to understand details of the individual scenario click on the listed description
+  - [Tendering API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_arll0fdg)
+  - [Subcontracting API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_0nq8qf49)
+  - [Visibility API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
 
 
 ## 2.) Request Tenant and Technical User

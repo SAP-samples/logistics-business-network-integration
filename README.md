@@ -195,6 +195,7 @@ Follow activities as done in step 6 to your productive URLs
 (Ravish)
 * Quality Gate - Smoke test in productive
 Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
+Here we should check against a list of acceptance criteria (we want to prove they really offer the functionality they claim).
 
 ## Requirements
 

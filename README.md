@@ -83,6 +83,7 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivitywi
 ### C. Order the B2B Test Tenant 
 
 Do we want to check, if we allow anyone to enter LBN ?
+Ariba Services Organization should provide Hotline / Incident to resolve issues here.
 
 * On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
 * In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)

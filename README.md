@@ -70,7 +70,7 @@ You may use these [sample payload](Upload/SamplePayload/) to build your mappings
 
 When the API s are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
 
-For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident. Use the application component - SCM-LBN-INT in [sap support portal](support.sap.com) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident. Use the application component - SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
 The OAuth Id will be needed by you to call our endpoint for all the provider APIs.
 
@@ -125,17 +125,8 @@ License 8007133 – Free of charge
 * Or via URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
 * Using your purchase order number provided in the invitation email sent from network enablement 
 
-
-
-(NORA 04.11.2020) (Joy/Baoning/Leon)
-* Get onboarded to LBN productive tenant
-
-To be able to communicate to LBN carriers or network partners have to request for a free productive account. Click on the [link](https://www.sapstore.com/solutions/46399/) and follow the steps in the link to request for a new productive account in LBN.
-
-https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_87fynq6n
-
-(Ravish S)
-* Request access to LBN endpoint for productive tenant
+Watch [this recording](https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_87fynq6n)
+to have the steps explained visually.
 
 For all the LBN provider APIs, when you call our endpoint, you would need to request or procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident . Use the  application component - SCM-LBN-INT in sap support portal(support.sap.com) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN and open the business profile tile.
 
@@ -149,24 +140,13 @@ The step above is same as the one you have request for test access. But the OAut
 
 * Configure system connection in LBN for productive tenant.Repeat the activities carried out on System connection App in the test tenant ( [Click here](https://video.sap.com/media/t/1_igc0uy3u) ). This time maintain your productive URL
 
-Follow activities as done in step 6 to your productive URLs
+Follow activities as done in step 3 to your productive URLs.
 
-(Ravish)
-* Quality Gate - Smoke test in productive
 Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
-Here we should check against a list of acceptance criteria (we want to prove they really offer the functionality they claim).
-
-## Requirements
-
-## Download and Installation
-
-## Known Issues
 
 ## How to obtain support
 
 If you have further questions, please post them here [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)
 
-## Contributing
-
-## License (mandatory)
+## License
 Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.

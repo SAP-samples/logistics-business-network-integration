@@ -19,7 +19,7 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 ![](Upload/Picture1.png)
 
-- All APIs are document in SAP API hub. To view relevenat api's click on the [link].(https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on Type 'Rest' 
+- All APIs are documented in SAP API hub. To view relevenat api's click on the [link].(https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on Type 'Rest' 
 
 - This video will provide you an overview of the APIs used for various scenarios [Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2)
 Additionally to understand details of the individual scenario click on the listed description. You can view the slides used in presentation by clicking on this [link](Upload/APIOverviewSlides.pdf)

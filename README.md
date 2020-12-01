@@ -1,25 +1,6 @@
-# Title
-
-**do not publish this please. It is still a draft**
-
-## Description (mandatory)
-
 # How To Integrate with SAP LBN APIs - Step by Step Guide
 
-
-
-**You can also opt in for SAP Professional Services to help guid you through the process,
-please contact us via ICC@SAP.COM**
-
-![](Upload/selfvsenterprisAPI.png)
-
 ![](Upload/slide4github.jpg)
-
-**You can also opt in for SAP Professional Services to help guid you through the process,
-please contact us via ICC@SAP.COM**
-
-**In case of questions please raise an Issue here in [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)**
-
 
 ## 0.) get yourself familiar with SAP LBN
 
@@ -207,7 +188,9 @@ Here we should check against a list of acceptance criteria (we want to prove the
 
 ## Known Issues
 
-## How to obtain support (mandatory(
+## How to obtain support
+
+In case of questions please raise an Issue here in [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)
 
 ## Contributing
 

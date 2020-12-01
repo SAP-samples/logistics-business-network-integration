@@ -62,24 +62,6 @@ Ariba Services Organization should provide Hotline / Incident to resolve issues 
 * In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
 * Or [via URL:](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
 
-
-
-
-
-
-
-(NORA 04.11.2020) (Joy/Baoning, Leon)
-NEW PROCESS FROM LEON, central e-mail for tenant request - NEED TO BE REFLECTED IN HERE
-ADD ALSO SLIDES FROM NATALIE FOR TENANT TYPE EXPLANATION.
-
-To be able to communicate to LBN carriers or network partners have to request for a free test B2B account. Click on the below link and follow the steps in the [link](https://www.sapstore.com/solutions/46401/) to request for a new B2B test account in LBN.
-
-
-After completion of your request, you will be provided with a login URL to SAP LBN and also credentials. Please use these URL and credentials to access LBN UIs and for maintaining configurations. 
-
-
-
-
 ## 3.) Integrate against SAP LBN APIs
 
 ![](Upload/3.png)

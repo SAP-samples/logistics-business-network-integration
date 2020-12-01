@@ -34,7 +34,7 @@ Additionally to understand details of the individual scenario click on the liste
 ![](Upload/Screenshot3.png) 
 ### A. API Mapping & Testing ###
 
-License 8007828 – Free of Charge *Test tenant to develop & test connectivitywith standard LBN APIs* 
+License 8007828 – Free of Charge *Test tenant to develop & test connectivity with standard LBN APIs* 
 
 
 
@@ -57,7 +57,7 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivitywi
 
 * On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
 * In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
-* Or [via URL:](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
+* Or via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
 
 ## 3.) Integrate against SAP LBN APIs
 
@@ -71,7 +71,7 @@ For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you w
 
 The OAuth Id will be needed by you to call our endpoint for all the provider APIs.
 
-The [LBN endpoint](ttps://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call:
+The [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call.
 
 
 During this step, SAP Will invite your test tenant to a dummy shipper tenant for test puruposes.  You would have to accept the invitation by logging in to you LBN tenant and Navigating to Manage Invitation tile.

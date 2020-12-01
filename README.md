@@ -9,19 +9,11 @@
 ![](Upload/whatisLBN.png)
 [Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) to view a video introduction session for the LBN Network - an introduction for carrier networks!
 
-
-![](Upload/whatcanyoudoascarrier.png) 
-
-[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5)  to view a video introduction to the LBN for API enabled carriers!
+[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5) to view a video introduction session for the LBN Network - for API enabled carriers!
 
 Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks.
 
-[These slides](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
-
-
-
-
-* partner edge <link>
+[These slides](Upload/SAP_LBN_FC_FOR_CARRIERS .pdf) will show you more information about API enabled carriers.
 
 ## 1.) Get yourself familiar with SAP LBN and APIs
 
@@ -190,7 +182,7 @@ Here we should check against a list of acceptance criteria (we want to prove the
 
 ## How to obtain support
 
-In case of questions please raise an Issue here in [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)
+If you have further questions, please post them here [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)
 
 ## Contributing
 

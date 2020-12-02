@@ -5,7 +5,7 @@
 
 ![](Upload/slide4github.jpg)
 
-## 0.) Get an overview of SAP LBN
+## 0.) Get an Overview of SAP LBN
 
 ![](Upload/0.png)
 
@@ -18,7 +18,7 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 [These slides](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
 
-## 1.) Get to know SAP LBN and APIs
+## 1.) Get to Know SAP LBN and APIs
 
 ![](Upload/Picture1.png)
 
@@ -144,7 +144,7 @@ Follow activities as done in step 3 to your productive URLs.
 
 Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
 
-## 6.) Become and SAP PartnerEdge Partner
+## 6.) Become an SAP PartnerEdge Partner
 
 ![](Upload/number6revised.png)
 

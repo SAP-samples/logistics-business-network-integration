@@ -144,6 +144,13 @@ Follow activities as done in step 3 to your productive URLs.
 
 Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
 
+
+![](Upload/284312_Number_6_R_blue (1).png)
+
+##6. PartnerEdge Membership for Network Partners
+
+
+
 ## How to obtain support
 
 If you have further questions, please post them here [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)

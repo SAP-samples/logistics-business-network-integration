@@ -144,10 +144,11 @@ Follow activities as done in step 3 to your productive URLs.
 
 Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
 
+## 6.) PartnerEdge Membership for Network Partners
 
-![](Upload/284312_Number_6_R_blue (1).png)
+![](Upload/slide4github.jpg)
 
-##6. PartnerEdge Membership for Network Partners
+
 
 
 

@@ -158,7 +158,7 @@ To become a PartnerEdge member, you will need to complete the following:
 4.	SAP App Center account and solution listing
  
 Find out more [here](https://www.sap.com/partner/become/partneredge-build.html).
-https://www.sap.com/partner/become/partneredge-build.html
+
 
 
 

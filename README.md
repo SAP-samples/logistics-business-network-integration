@@ -5,7 +5,7 @@
 
 ![](Upload/slide4github.jpg)
 
-## 0.) get yourself familiar with SAP LBN
+## 0.) Get an overview of SAP LBN
 
 ![](Upload/0.png)
 
@@ -18,7 +18,7 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 [These slides](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
 
-## 1.) Get yourself familiar with SAP LBN and APIs
+## 1.) Get to know SAP LBN and APIs
 
 ![](Upload/Picture1.png)
 
@@ -62,7 +62,7 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivity w
 * In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
 * Or via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
 
-## 3.) Integrate against SAP LBN APIs
+## 3.) Integrate with SAP LBN APIs
 
 ![](Upload/3.png)
 

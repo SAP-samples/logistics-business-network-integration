@@ -3,7 +3,7 @@
 
 # How To Integrate with SAP LBN APIs - Step by Step Guide
 
-![](Upload/slide4github.jpg)
+![](Upload/1to6steps.png)
 
 ## 0.) Get an Overview of SAP LBN
 

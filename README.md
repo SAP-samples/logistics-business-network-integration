@@ -149,7 +149,7 @@ Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example
 
 As a network provider, with delivered connectivity to the SAP Logistics Business Network, your next step is to become an SAP PartnerEdge member. SAP PartnerEdge provides network solution and content providers an official SAP Partner status to allow joint go-to-market and marketing with SAP. You will profit from inclusion in the global go-to-market assets and enablement activities for the SAP Logistics Business Network. As a partner, you may issue SAP-supported press releases, participate in SAP events, and publish co-branded marketing materials for the joint solution and partnership. You will also have access to SAP partner management, for example to connect you with the relevant SAP stakeholders for opportunity and customer project alignment. Furthermore, with PartnerEdge membership, your solution will be included in the SAP APP Center for marketing and sales to SAP customers.   
  
- ![](SAPPartnerEdge.png)
+ ![](Upload/SAPPartnerEdge.png)
 
 To become a PartnerEdge member, you will need to complete the following:
 1.	SAP PartnerEdge Build, Integrate application
@@ -157,7 +157,7 @@ To become a PartnerEdge member, you will need to complete the following:
 3.	Due Diligence check for compliance validation
 4.	SAP App Center account and solution listing
  
-Find out more here.
+Find out more [here](https://www.sap.com/partner/become/partneredge-build.html).
 https://www.sap.com/partner/become/partneredge-build.html
 
 

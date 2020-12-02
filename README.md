@@ -35,15 +35,14 @@ Additionally to understand details of the individual scenario click on the liste
 ![](Upload/2.png)
 
 ![](Upload/Screenshot3.png) 
+
+Here you will learn how to request a tenant and a technical user: 
+
 ### A. API Mapping & Testing ###
 
 License 8007828 – Free of Charge *Test tenant to develop & test connectivity with standard LBN APIs* 
-
-
-
-
-* For Partner Integration phase: Mapping to SAP LBN APIs & end-to-end testing for both Freight Collaboration & Global Track and Trace options 
-* Also for Customer Testing / implementation project with testing of integration to the partner network
+* For Partner Integration phase: Mapping to SAP LBN APIs and end-to-end testing for both Freight Collaboration & Global Track and Trace options 
+* Also for Customer Testing/implementation project with testing of integration to the partner network
 
 ![](Upload/Screenshot.png)
 ### B. License Coverage Details
@@ -58,19 +57,21 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivity w
 
 ### C. Order the B2B Test Tenant 
 
-* On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
-* In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
-* Or via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
+You can order the B2B test tenant in three different ways: 
+
+1) On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
+2) In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
+3) Via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
 
 ## 3.) Integrate with SAP LBN APIs
 
 ![](Upload/3.png)
 
-You may use these [sample payload](Upload/SamplePayload/) to build your mappings and endpoints.
+You may use this [sample payload](Upload/SamplePayload/) to build your mappings and endpoints.
 
-When the API s are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
+When the APIs are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
 
-For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident. Use the application component - SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component - SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
 The OAuth Id will be needed by you to call our endpoint for all the provider APIs.
 

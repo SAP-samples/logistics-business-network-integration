@@ -2,10 +2,9 @@
 
 ![](Upload/1to6steps.png)
 
-The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP LBN APIs.
-Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist.
-The description is valid for both Freight Collaboration Option (FC), as well as Global Tracka and Trace Option (GTT).
-Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively.  [this repository](https://github.com/SAP-samples/logistics-business-network-integration/issues)
+The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP LBN APIs. Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist.The description is valid for both Freight Collaboration Option (FC), as well as Global Tracka and Trace Option (GTT).
+
+Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively. [Ask a question](https://github.com/SAP-samples/logistics-business-network-integration/issues)
 You might also take a look at the below [glossary](https://github.com/SAP-samples/logistics-business-network-integration#glossary).
 
 ## 0.) Get an overview of SAP LBN

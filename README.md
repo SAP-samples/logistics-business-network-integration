@@ -87,9 +87,9 @@ You can request the B2B test tenant in three different ways:
 
 (Joy/Ravish)
 
-### 2.1) Requesting a technical user
+### 2.2) Requesting a technical user
 
-For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
 ## 3.) Integrate with SAP LBN APIs
 
@@ -113,7 +113,7 @@ Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b
 
 ![](Upload/4.png)
 
-- To test , you can generate an test call from the system connection app. you may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload
+To test , you can generate a test call from the system connection app. you may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload.
 
 ## 5.) Release for productive usage
 

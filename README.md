@@ -24,22 +24,18 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 ![](Upload/Picture1.png)
 
-- All LBN APIs are documented in SAP API hub. 
+All LBN APIs are documented in SAP API hub. 
+To view the relevent Freight Collaboration Option (FC) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
+To view the relevent Global Track and Trace Option (GTT) APIs click [here](https://api.sap.com/package/LbnGlobalTrackAndTrace?section=Artifacts) and filter based on type 'Rest'.
+This video will provide you an overview of the APIs used for the various Freight Collaboration Option scenarios [click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
 
-- To view the relevent Freight Collaboration Option (FC) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
-
-- To view the relevent Global Track and Trace Option (GTT) APIs click [here](https://api.sap.com/package/LbnGlobalTrackAndTrace?section=Artifacts) and filter based on type 'Rest'.
-
-- This video will provide you an overview of the APIs used for the various Freight Collaboration Option scenarios [click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
-
-- Additionally, to understand the details of the individual scenarios click on the listed description below.
+Additionally, to understand the details of the individual scenarios click on the listed description below.
 You can view the slides used in these presentations by clicking on this [link](Upload/APIOverviewSlides.pdf).
   - [Tendering API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_arll0fdg)
   - [Subcontracting API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_0nq8qf49)
   - [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
   
-- For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
-
+For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
 
 ## 2.) Request tenant and technical user
 ![](Upload/2.png)

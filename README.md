@@ -26,9 +26,9 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 - All LBN APIs are documented in SAP API hub. 
 
-- To view the relevenat Freight Collaboration Option (FC) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
+- To view the relevent Freight Collaboration Option (FC) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
 
-- To view the relevenat Global Track and Trace Option (GTT) APIs click [here](https://api.sap.com/package/LbnGlobalTrackAndTrace?section=Artifacts) and filter based on type 'Rest'.
+- To view the relevent Global Track and Trace Option (GTT) APIs click [here](https://api.sap.com/package/LbnGlobalTrackAndTrace?section=Artifacts) and filter based on type 'Rest'.
 
 - This video will provide you an overview of the APIs used for the various Freight Collaboration Option scenarios [click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
 
@@ -44,17 +44,25 @@ You can view the slides used in these presentations by clicking on this [link](U
 ## 2.) Request tenant and technical user
 ![](Upload/2.png)
 
+As a prerequisit for connecting to / integrating with SAP LBN APIs,
+you are required to have tenants in LBN available which are specific to your company.
+
+For this you will have to request two tenants, one that will serve the development and test purposes,
+and a second one for productive usage.
+
+This section focuses on requesting the development/test tenant.
+Section 5 will guide you through requesting your productive tenant.
+
 ![](Upload/Screenshot3.png) 
 
-Here you will learn how to request a tenant and a technical user: 
+### A. Tenant and License description ###
 
-### A. API mapping & testing ###
-
-License 8007828 – Free of Charge *Test tenant to develop & test connectivity with standard LBN APIs* 
-* For Partner Integration phase: Mapping to SAP LBN APIs and end-to-end testing for both Freight Collaboration & Global Track and Trace options 
-* Also for Customer Testing/implementation project with testing of integration to the partner network
+License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivity with standard LBN APIs* 
+* For carrier/partner integration phase: mapping to SAP LBN APIs and end-to-end testing for both Freight Collaboration & Global Track and Trace options 
+* Also for customer testing/implementation project with testing of integration to the partner network
 
 ![](Upload/Screenshot.png)
+
 ### B. License coverage details
 * SAP Logistics Business Network B2B Test Tenant for carriers and network partners
 * License to set-up B2B connections for
@@ -65,9 +73,9 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivity w
 * Related usage of SAP Cloud Identity and SAP Fiori
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
-### C. Order the B2B test tenant 
+### C. Requesting the B2B test tenant 
 
-You can order the B2B test tenant in three different ways: 
+You can request the B2B test tenant in three different ways: 
 
 1) On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
 2) In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)

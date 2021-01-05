@@ -44,6 +44,8 @@ You can view the slides used in these presentations by clicking on this [link](U
 ## 2.) Request tenant and technical user
 ![](Upload/2.png)
 
+### 2.1) Requesting a tenant
+
 As a prerequisit for connecting to / integrating with SAP LBN APIs,
 you are required to have tenants in LBN available which are specific to your company.
 
@@ -55,7 +57,7 @@ Section 5 will guide you through requesting your productive tenant.
 
 ![](Upload/Screenshot3.png) 
 
-### A. Tenant and License description ###
+#### A. Tenant and License description ###
 
 License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivity with standard LBN APIs* 
 * For carrier/partner integration phase: mapping to SAP LBN APIs and end-to-end testing for both Freight Collaboration & Global Track and Trace options 
@@ -63,7 +65,7 @@ License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivit
 
 ![](Upload/Screenshot.png)
 
-### B. License coverage details
+#### B. License coverage details
 * SAP Logistics Business Network B2B Test Tenant for carriers and network partners
 * License to set-up B2B connections for
   * Mapping to SAP Logistics Business Network standard APIs
@@ -73,7 +75,7 @@ License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivit
 * Related usage of SAP Cloud Identity and SAP Fiori
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
-### C. Requesting the B2B test tenant 
+#### C. Requesting the B2B test tenant 
 
 You can request the B2B test tenant in three different ways: 
 
@@ -81,27 +83,31 @@ You can request the B2B test tenant in three different ways:
 2) In the SAP Store via Hyperlink[ here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
 3) Via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
 
+#### D. Configuring the B2B test tenant
+
+(Joy/Ravish)
+
+### 2.1) Requesting a technical user
+
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+
 ## 3.) Integrate with SAP LBN APIs
 
 ![](Upload/3.png)
 
-You may use this [sample payload](Upload/SamplePayload/) to build your mappings and endpoints.
+You may use these [sample payloads](Upload/SamplePayload/) to build your mappings and endpoints.
 
-When the APIs are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
+Once your APIs are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections. 
 
-For all the LBN provider APIs(inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component - SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+The OAuth Id and secret that you requested earlier, will be needed by you to call our endpoint for all the provider APIs.
 
-The OAuth Id will be needed by you to call our endpoint for all the provider APIs.
+This the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call.
 
-The [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call.
+(Joy/Ravish)
 
-
-During this step, SAP will invite your test tenant to a dummy shipper tenant for test puruposes.  You would have to accept the invitation by logging in to you LBN tenant and navigating to Manage Invitation tile.
-
+During this step, SAP will invite your test tenant to a dummy shipper tenant for test puruposes.  You would have to accept the invitation by logging in to you LBN tenant and navigating to Manage Invitation tile. ?
 
 Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/011fbcd85017450587389c4a10190077.html) help will guide you on how to configure your endpoint in our app.
-
-
 
 ## 4.) Testing 
 

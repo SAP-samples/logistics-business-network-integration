@@ -5,7 +5,7 @@
 The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP LBN APIs. Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist. The description is valid for both Freight Collaboration Option (FC), as well as Global Track and Trace Option (GTT).
 
 Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively - [ask a question](https://github.com/SAP-samples/logistics-business-network-integration/issues).
-You might also take a look at the below [glossary](https://github.com/SAP-samples/logistics-business-network-integration#glossary).
+You might also want to take a look at the below [glossary](https://github.com/SAP-samples/logistics-business-network-integration#glossary).
 
 ## 0.) Get an overview of SAP LBN
 
@@ -24,13 +24,21 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 ![](Upload/Picture1.png)
 
-- All APIs are documented in SAP API hub. To view relevenat api's click on the [link](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on Type 'Rest'.
+- All LBN APIs are documented in SAP API hub. 
 
-- This video will provide you an overview of the APIs used for various scenarios [click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
-Additionally to understand details of the individual scenario click on the listed description. You can view the slides used in presentation by clicking on this [link](Upload/APIOverviewSlides.pdf)
+- To view the relevenat Freight Collaboration Option (FC) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
+
+- To view the relevenat Global Track and Trace Option (GTT) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
+
+- This video will provide you an overview of the APIs used for the various Freight Collaboration Option scenarios [click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
+
+- Additionally, to understand the details of the individual scenarios click on the listed description below.
+You can view the slides used in these presentations by clicking on this [link](Upload/APIOverviewSlides.pdf)
   - [Tendering API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_arll0fdg)
   - [Subcontracting API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_0nq8qf49)
-  - [Visibility API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
+  - [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
+  
+- For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
 
 
 ## 2.) Request tenant and technical user

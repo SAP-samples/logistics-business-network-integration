@@ -1,11 +1,14 @@
-# !!! THIS PAGE IS UNDER CONSTRUCTION !!! #
-
-
-# How To Integrate with SAP LBN APIs - Step by Step Guide
+# How to integrate with SAP LBN APIs - a step by step guide
 
 ![](Upload/1to6steps.png)
 
-## 0.) Get an Overview of SAP LBN
+The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP LBN APIs.
+Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist.
+The description is valid for both Freight Collaboration Option (FC), as well as Global Tracka and Trace Option (GTT).
+Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively.  [this repository](https://github.com/SAP-samples/logistics-business-network-integration/issues)
+You might also take a look at the below [glossary](https://github.com/SAP-samples/logistics-business-network-integration#glossary).
+
+## 0.) Get an overview of SAP LBN
 
 ![](Upload/0.png)
 
@@ -18,7 +21,7 @@ Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS
 
 [These slides](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
 
-## 1.) Get to Know SAP LBN and APIs
+## 1.) Get to know SAP LBN and APIs
 
 ![](Upload/Picture1.png)
 
@@ -31,21 +34,21 @@ Additionally to understand details of the individual scenario click on the liste
   - [Visibility API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
 
 
-## 2.) Request Tenant and Technical User
+## 2.) Request tenant and technical user
 ![](Upload/2.png)
 
 ![](Upload/Screenshot3.png) 
 
 Here you will learn how to request a tenant and a technical user: 
 
-### A. API Mapping & Testing ###
+### A. API mapping & testing ###
 
 License 8007828 – Free of Charge *Test tenant to develop & test connectivity with standard LBN APIs* 
 * For Partner Integration phase: Mapping to SAP LBN APIs and end-to-end testing for both Freight Collaboration & Global Track and Trace options 
 * Also for Customer Testing/implementation project with testing of integration to the partner network
 
 ![](Upload/Screenshot.png)
-### B. License Coverage Details
+### B. License coverage details
 * SAP Logistics Business Network B2B Test Tenant for carriers and network partners
 * License to set-up B2B connections for
   * Mapping to SAP Logistics Business Network standard APIs
@@ -55,7 +58,7 @@ License 8007828 – Free of Charge *Test tenant to develop & test connectivity w
 * Related usage of SAP Cloud Identity and SAP Fiori
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
-### C. Order the B2B Test Tenant 
+### C. Order the B2B test tenant 
 
 You can order the B2B test tenant in three different ways: 
 
@@ -91,12 +94,12 @@ Below [application link](https://help.sap.com/viewer/185742008f2c477ca789b93675b
 
 - To test , you can generate an test call from the system connection app. you may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload
 
-## 5.) Release for Productive Usage
+## 5.) Release for productive usage
 
 ![](Upload/5.png)
 
 ![](Upload/Screenshotproductive1.png)
-### A. Customer Connectivity
+### A. Customer connectivity
 License 8007133 – Free of charge
 **Productive tenant for connectivity and transaction processing / data sharing with shippers*** 
 * Covers both Freight Collaboration & Global Track and Trace options
@@ -105,7 +108,7 @@ License 8007133 – Free of charge
 
 
 ![](Upload/Schreenshotproductive2.png)
-### B. License Coverage Details
+### B. License coverage details
 
 * SAP Logistics Business Network membership as a carrier or network partner
 * License to collaborate / transact with connected shipper customers via the SAP Logistics Business Network for:
@@ -118,10 +121,10 @@ License 8007133 – Free of charge
 
 
 ![](Upload/Screenshotproductive3.png)
-### C.1  Request Productive Membership Invitation: 
+### C.1  Request productive membership invitation: 
 * On completion of mapping and integration testing only
 * Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
-### C.2   Order the Basic Membership License
+### C.2   Order the basic membership license
 * After successful completion of step C.1
 * In the SAP Store via Hyperlink here
 * Or via URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
@@ -161,14 +164,13 @@ To become a PartnerEdge member, you will need to complete the following:
  
 Find out more [here](https://www.sap.com/partner/become/partneredge-build.html).
 
+## Glossary
 
-
-
-
+- API: Application Programming Interface
 
 ## How to obtain support
 
-If you have further questions, please post them here [this repository](https://github.wdf.sap.corp/D055590/logistics-business-network-integration/issues)
+If you have further questions, please post them here [this repository](https://github.com/SAP-samples/logistics-business-network-integration/issues)
 
 ## License
 Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.

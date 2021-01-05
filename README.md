@@ -36,6 +36,10 @@ For Global Track and Trace Option you can refer to the same Tracking API descrip
 ## 2.) Request tenant and technical user
 ![](Upload/2.png)
 
+Before you can actually start connecting against LBN, you need to request the two below items:
+- Tenant
+- Technical User
+
 ### 2.1) Requesting a tenant
 
 As a prerequisit for connecting to / integrating with SAP LBN APIs,

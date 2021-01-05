@@ -113,6 +113,8 @@ To test , you can generate a test call from the system connection app. you may r
 
 ## 5.) Release for productive usage
 
+### 5.1) Requesting the productive tenant
+
 ![](Upload/5.png)
 
 ![](Upload/Screenshotproductive1.png)
@@ -150,6 +152,8 @@ License 8007133 – Free of charge
 Watch [this recording](https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_87fynq6n)
 to have the steps explained visually.
 
+### 5.2) API and Endpoint Configuration
+
 For all the LBN provider APIs, when you call our endpoint, you would need to request or procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident . Use the  application component - SCM-LBN-INT in [sap support portal](https://support.sap.com/). Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN and open the business profile tile.
 
 The OAuth Id will be needed by you to call our endpoint for all the provider APIs.
@@ -162,6 +166,8 @@ The step above is same as the one you have request for test access. But the OAut
 Configure system connection in LBN for productive tenant.Repeat the activities carried out on System connection App in the test tenant ( [Click here](https://video.sap.com/media/t/1_igc0uy3u) ). This time maintain your productive URL
 
 Follow activities as done in step 3 to your productive URLs.
+
+### 5.3) Smoke Test
 
 Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
 

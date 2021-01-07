@@ -94,7 +94,7 @@ You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view
 
 The OAuth Id and secret that you requested earlier, will be needed by you to call our endpoint for all the provider APIs.
 
-This the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call.
+This the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h .
 
 ## 4.) Testing 
 

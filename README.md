@@ -73,7 +73,7 @@ License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivit
 
 #### C. Requesting the B2B test tenant 
 
-Please request your B2B test tenant via following URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
+Please request your B2B test tenant via following URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant.
 
 #### D. Configuring the B2B test tenant
 
@@ -81,7 +81,7 @@ To perform the remaining configurations of your B2B test tenant please follow th
 
 ### 2.2) Requesting a technical user
 
-For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [sap support portal](https://support.sap.com/) Please mention the LBNID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
 ## 3.) Integrate with SAP LBN APIs
 
@@ -94,7 +94,7 @@ You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view
 
 The OAuth Id and secret that you requested earlier, will be needed by you to call our endpoint for all the provider APIs.
 
-This the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h .
+This is the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h .
 
 ## 4.) Testing 
 

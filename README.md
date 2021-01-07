@@ -77,8 +77,7 @@ Please request your B2B test tenant via following URL: https://www.sapstore.com/
 
 #### D. Configuring the B2B test tenant
 
-Optionally you may configure some detailed settings of your B2B test tenant,
-please refer to the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US) for the same.
+To perform the remaining configurations of your B2B test tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US).
 
 ### 2.2) Requesting a technical user
 
@@ -145,6 +144,8 @@ License 8007133 – Free of charge
 * Using your purchase order number provided in the invitation email sent from network enablement 
 
 #### D. Configuring Productive Tenant
+
+To perform the remaining configurations of your productive tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example the visibility to shippers in the Business Partner Directory.
 
 Watch [this recording](https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_87fynq6n)
 to have the steps explained visually.

@@ -89,8 +89,8 @@ For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you 
 
 You may use these [postman sample payloads](Upload/SamplePayload/) to build your mappings and endpoints.
 
-Once your APIs are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call. You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections,
-as well as this [documentation] (https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/011fbcd85017450587389c4a10190077.html),
+Once your APIs are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call.
+You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view how to setup outbound connections and inbound connections, as well as this [documentation](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/011fbcd85017450587389c4a10190077.html).
 
 The OAuth Id and secret that you requested earlier, will be needed by you to call our endpoint for all the provider APIs.
 

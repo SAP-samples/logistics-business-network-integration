@@ -33,14 +33,14 @@ You can view the slides used in these presentations by clicking on this [link](U
   
 For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
 
-## 2.) Request tenant and technical user
+## 2.) Request B2B test tenant and test technical user
 ![](Upload/2.png)
 
 Before you can actually start connecting against LBN, you need to request the two below items:
-- Tenant
-- Technical User
+- Request B2B test tenant
+- Request test technical user
 
-### 2.1) Requesting a tenant
+### 2.1) Request B2B test tenant
 
 As a prerequisit for connecting to / integrating with SAP LBN APIs,
 you are required to have tenants in LBN available which are specific to your company.
@@ -79,7 +79,7 @@ Please request your B2B test tenant via following URL: https://www.sapstore.com/
 
 To perform the remaining configurations of your B2B test tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US).
 
-### 2.2) Requesting a technical user
+### 2.2) Request test technical user
 
 For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
@@ -104,12 +104,25 @@ To test , you can generate a test call from the system connection app. you may r
 
 ## 5.) Release for productive usage
 
-### 5.1) Requesting the productive tenant
+Before your implementation can be released for usage, you are required to perform below activities:
+- Request productive tenant
+- Request productive technical user
+- Configure APIs and endpoints
+- Perform smoke test
+
+### 5.1) Request productive tenant
 
 ![](Upload/5.png)
 
+As a prerequisit for connecting to / integrating with SAP LBN APIs, you are required to have tenants in LBN available which are specific to your company.
+
+For this you will have to request two tenants, one that will serve the development and test purposes, and a second one for productive usage.
+
+This section focuses on requesting the productive tenant. Section 2 guided you through requesting your development/test tenant.
+
 ![](Upload/Screenshotproductive1.png)
-#### A. Customer connectivity
+
+#### A. Tenant and License description
 License 8007133 – Free of charge
 **Productive tenant for connectivity and transaction processing / data sharing with shippers*** 
 * Covers both Freight Collaboration & Global Track and Trace options
@@ -129,40 +142,33 @@ License 8007133 – Free of charge
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
 ![](Upload/Screenshotproductive3.png)
-#### C.1  Request productive membership invitation: 
+#### C.1 Request productive membership invitation: 
 On completion of mapping and integration testing only.
 * Case 1: A shipper has already invited you - no additional activity at this step required.
-* Case 2: Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
-#### C.2   Order the basic membership license
+* Case 2: You had not been yet invited - invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com.
+#### C.2 Order the basic membership license
 * After successful completion of step C.1
-* In the SAP Store via Hyperlink here
-* Or via URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
+* Please request your productive tenant via following URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
 * Using your purchase order number provided in the invitation email sent from network enablement 
+* Watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the steps explained visually.
 
 #### D. Configuring Productive Tenant
 
-To perform the remaining configurations of your productive tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example the visibility to shippers in the Business Partner Directory.
+To perform the remaining configurations of your productive tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example enabling business partner entry and discovery in the business partner directory.
 
-Watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the steps explained visually.
+### 5.2) Request productive technical user
 
-### 5.2) API and Endpoint Configuration
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
-For all the LBN provider APIs, when you call our endpoint, you would need to request or procure an OAuth 2.0 client Id and secret. This can be procured by reporting an incident . Use the  application component - SCM-LBN-INT in [sap support portal](https://support.sap.com/). Please mention the LBNID created for you account. To know the LBN ID, login to SAP LBN and open the business profile tile.
+### 5.3) Configure APIs and endpoints
 
-The OAuth Id will be needed by you to call our endpoint for all the provider APIs.
+Please perform the same activities as in chapter "3.) Integrate with SAP LBN APIs" earlier, with the below two exceptions:
+- Use the productive technical user you had requested
+- This time maintain the productive LBN URL: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1
 
-The [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1
-) that you need to call.
+### 5.4) Perform smoke test
 
-The step above is same as the one you have request for test access. But the OAuth ID and secret will be separate for productive access.
-
-Configure system connection in LBN for productive tenant.Repeat the activities carried out on System connection App in the test tenant ( [Click here](https://video.sap.com/media/t/1_igc0uy3u) ). This time maintain your productive URL
-
-Follow activities as done in step 3 to your productive URLs.
-
-### 5.3) Smoke Test
-
-Raise an incident in SCM-LBN-INT for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
+Raise an incident in SCM-LBN-INT [SAP support portal](https://support.sap.com/) for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
 
 ## 6.) Become an SAP PartnerEdge Partner
 

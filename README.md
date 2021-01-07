@@ -73,16 +73,12 @@ License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivit
 
 #### C. Requesting the B2B test tenant 
 
-You can request the B2B test tenant in three different ways: 
-
-1) On completion of introduction of your company and solution for SAP Logistics Business Network integration and partnership team via email: LBNPartner@sap.com
-2) In the SAP Store via Hyperlink [here](https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant)
-3) Via URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
+Please request your B2B test tenant via following URL: https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant
 
 #### D. Configuring the B2B test tenant
 
 Optionally you may configure some detailed settings of your B2B test tenant,
-please refer to the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US)for the same.
+please refer to the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US) for the same.
 
 ### 2.2) Requesting a technical user
 

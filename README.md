@@ -100,7 +100,7 @@ This is the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/ht
 
 ![](Upload/4.png)
 
-To test , you can generate a test call from the system connection app. you may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload.
+To test, you can generate a test call from the system connection app. You may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload.
 
 ## 5.) Release for productive usage
 
@@ -123,18 +123,17 @@ This section focuses on requesting the productive tenant. Section 2 guided you t
 ![](Upload/Screenshotproductive1.png)
 
 #### A. Tenant and License description
-License 8007133 – Free of charge
-**Productive tenant for connectivity and transaction processing / data sharing with shippers*** 
+License 8007133 – Free of charge Productive tenant for connectivity and transaction processing / data sharing with shippers 
 * Covers both Freight Collaboration & Global Track and Trace options
 * Enables business partner entry and discovery in the business partner directory 
 * Enables listing and representation in SAP Logistics Business Network go-to-market materials
 
-![](Upload/Schreenshotproductive2.png)
+![](Upload/Screenshotproductive2.png)
 #### B. License coverage details
 
 * SAP Logistics Business Network membership as a carrier or network partner
 * License to collaborate / transact with connected shipper customers via the SAP Logistics Business Network for:
-  * Freight Requests for Quotation and freight order confirmation / rejectiion 
+  * Freight Requests for Quotation and freight order confirmation / rejection 
   * Order tracking 
   * Web-based access for documents exchange
 * An unlimited number of connections 
@@ -147,10 +146,10 @@ On completion of mapping and integration testing only.
 * Case 1: A shipper has already invited you - no additional activity at this step required.
 * Case 2: You had not been yet invited - invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com.
 #### C.2 Order the basic membership license
-* After successful completion of step C.1
-* Please request your productive tenant via following URL:https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
+After successful completion of step C.1. You may watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the steps explained visually.
+
+* Please request your productive tenant via following URL: https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
 * Using your purchase order number provided in the invitation email sent from network enablement 
-* Watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the steps explained visually.
 
 #### D. Configuring Productive Tenant
 

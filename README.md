@@ -130,7 +130,7 @@ License 8007133 – Free of charge
 
 ![](Upload/Screenshotproductive3.png)
 #### C.1  Request productive membership invitation: 
-On completion of mapping and integration testing only
+On completion of mapping and integration testing only.
 * Case 1: A shipper has already invited you - no additional activity at this step required.
 * Case 2: Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
 #### C.2   Order the basic membership license
@@ -143,8 +143,7 @@ On completion of mapping and integration testing only
 
 To perform the remaining configurations of your productive tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example the visibility to shippers in the Business Partner Directory.
 
-Watch [this recording](https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_87fynq6n)
-to have the steps explained visually.
+Watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the steps explained visually.
 
 ### 5.2) API and Endpoint Configuration
 

@@ -130,7 +130,7 @@ License 8007133 – Free of charge
 
 ![](Upload/Screenshotproductive3.png)
 #### C.1  Request productive membership invitation: 
-* On completion of mapping and integration testing only
+On completion of mapping and integration testing only
 * Case 1: A shipper has already invited you - no additional activity at this step required.
 * Case 2: Invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com 
 #### C.2   Order the basic membership license

@@ -94,7 +94,7 @@ You may refere to this [video](https://video.sap.com/media/t/1_igc0uy3u) to view
 
 The OAuth Id and secret that you requested earlier, will be needed by you to call our endpoint for all the provider APIs.
 
-This is the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h .
+This is the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h.
 
 ## 4.) Testing 
 
@@ -167,7 +167,7 @@ Please perform the same activities as in chapter "3.) Integrate with SAP LBN API
 
 ### 5.4) Perform smoke test
 
-Raise an incident in SCM-LBN-INT [SAP support portal](https://support.sap.com/) for a smoke test. We will facilitate an example order to your system . This activity will be done manually. 
+Raise an incident in SCM-LBN-INT [SAP support portal](https://support.sap.com/) for a smoke test. We will facilitate an example order to your system. This activity will be done manually. 
 
 ## 6.) Become an SAP PartnerEdge Partner
 

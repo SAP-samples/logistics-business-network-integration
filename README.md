@@ -77,7 +77,7 @@ Please request your B2B test tenant via following URL: https://www.sapstore.com/
 
 #### D. Configuring the B2B test tenant
 
-To perform the remaining configurations of your B2B test tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US).
+To perform the remaining configurations of your B2B test tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example enabling business partner entry and discovery in the business partner directory.
 
 ### 2.2) Request test technical user
 
@@ -141,15 +141,11 @@ License 8007133 – Free of charge Productive tenant for connectivity and transa
 * Standard SAP cloud support for SAP Logistics Business Network and standard APIs
 
 ![](Upload/Screenshotproductive3.png)
-#### C.1 Request productive membership invitation: 
-On completion of mapping and integration testing only.
-* Case 1: A shipper has already invited you - no additional activity at this step required.
-* Case 2: You had not been yet invited - invitation request to be sent to network enablement validation via email: sap.dsc.network.enablement@sap.com.
-#### C.2 Order the basic membership license
-After successful completion of step C.1. You may watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the steps explained visually.
+#### C. Requesting the productive tenant  
 
-* Please request your productive tenant via following URL: https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership
-* Using your purchase order number provided in the invitation email sent from network enablement 
+* If a shipper had not actively invited you, please send a request to LBN network enablement team via email: sap.dsc.network.enablement@sap.com.
+* Please request your productive tenant using the purchase order number you had received via following URL: https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership.
+* You may watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the required steps visually explained.
 
 #### D. Configuring Productive Tenant
 

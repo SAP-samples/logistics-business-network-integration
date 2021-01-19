@@ -87,6 +87,8 @@ For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you 
 
 ![](Upload/3.png)
 
+Watch [this video](https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_79ppqap7) to learn more about system connection partner settings!
+
 You may use these [postman sample payloads](Upload/SamplePayload/) to build your mappings and endpoints.
 
 Once your APIs are ready, you can configure the endpoints to our test landscape. To configure them, you will have to login to SAP LBN and maintain your endpoints that SAP LBN needs to call.

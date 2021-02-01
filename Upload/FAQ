@@ -1,2 +1,4 @@
- 1.  What is the trigger for sending the message "Consumer API for Freight Tendering" via API? 
+# FAQ
+
+1.  What is the trigger for sending the message "Consumer API for Freight Tendering" via API? 
 ans. Whenever LBN receieves an RFQ from Shipper SAP TM system and if APIs are configured, we will send it out immediately. Shippers can configure the point at which they would trigger4

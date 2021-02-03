@@ -1,0 +1,27 @@
+{
+    "shipper": {
+        "shipperLBNID": "{{ShipperLbnId}}"
+    },
+    "carrier": {
+        "carrierLBNID": "{{CarrierLbnId}}"
+    },
+    "networkPartner": {
+        "networkPartnerLBNID": "{{NetworkPartnerLbnId}}"
+    },
+    "technicalId": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:OrderResource:{{FOId}}-{{ContainerId}}:FC",
+    "creationDateTimeUTC": "{{YearMonth}}-21T06:00:00Z",
+    "events": [
+        {
+            "eventType": "ARRIV_DEST",
+            "natureOfEvent": "02",
+            "transportationMode": "01",
+            "transportMeans": {
+                "transportMeansStandardCode": "11"
+            },
+            "location": {
+                "UNLOCODE": "DEHAM"
+            },
+            "eventDateTimeUTC": "{{YearMonth}}-21T06:00:00Z"
+        }
+    ]
+}

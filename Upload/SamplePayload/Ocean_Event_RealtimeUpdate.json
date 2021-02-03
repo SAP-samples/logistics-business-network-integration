@@ -1,0 +1,47 @@
+{
+    "shipper": {
+        "shipperLBNID": "{{ShipperLbnId}}"
+    },
+    "carrier": {
+        "carrierLBNID": "{{CarrierLbnId}}"
+    },
+    "networkPartner": {
+        "networkPartnerLBNID": "{{NetworkPartnerLbnId}}"
+    },
+    "technicalId": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:OrderResource:{{FOId}}-{{ContainerId}}:FC",
+    "orderId": "{{FOId}}",
+    "creationDateTimeUTC": "{{YearMonth}}-21T00:50:00Z",
+    "events": [
+        {
+            "natureOfEvent": "01",
+            "eventType": "GEOLOC",
+            "transportationMode": "01",
+            "transportMeans": {
+                "transportMeansStandardCode": "11",
+                "trackedObjects": [
+                    {
+                        "Id": "CONTAINER_ID",
+                        "value": "{{ContainerId}}"
+                    }
+                ]
+            },
+            "location": {
+                "latitude": 37.7749295,
+                "longitude": -122.4194155,
+                "timeZone": "UTC+5"
+            },
+            "eventDateTimeUTC": "{{YearMonth}}-21T00:00:00Z",
+            "eventTimeZone": "UTC+5",
+            "previousStopId": "1",
+            "nextStopId": "2",
+            "estimatedArrival": [
+                {
+                    "stopId": "2",
+                    "locationId": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:Location:LogisticLocation:PL1_LSO_CUSTOMER_02",
+                    "estimatedDateTimeUTC": "2020-09-21T06:50:00Z",
+                    "estimationTimeZone": "UTC+3"
+                }
+            ]
+        }
+    ]
+}

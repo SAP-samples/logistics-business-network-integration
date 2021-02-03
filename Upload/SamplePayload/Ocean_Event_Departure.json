@@ -1,0 +1,40 @@
+{
+    "shipper": {
+        "shipperLBNID": "{{ShipperLbnId}}"
+    },
+    "carrier": {
+        "carrierLBNID": "{{CarrierLbnId}}"
+    },
+    "networkPartner": {
+        "networkPartnerLBNID": "{{NetworkPartnerLbnId}}"
+    },
+    "technicalId": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:OrderResource:{{FOId}}-{{ContainerId}}:FC",
+    "orderId": "{{FOId}}",
+    "creationDateTimeUTC": "{{YearMonth}}-20T00:00:00Z",
+    "events": [
+        {
+            "natureOfEvent": "01",
+            "eventType": "DEPARTURE",
+            "transportationMode": "01",
+            "transportMeans": {
+                "transportMeansStandardCode": "11",
+                "trackedObjects": [
+                    {
+                        "Id": "CONTAINER_ID",
+                        "value": "{{ContainerId}}"
+                    }
+                ]
+            },
+            "stopId": "1",
+            "ordinalNo": 1,
+            "location": {
+                "ID": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:Location:LogisticLocation:PL1_LSO_PROD_PLANT",
+                "UNLOCODE": "COCTG"
+            },
+            "eventDateTimeUTC": "{{YearMonth}}-20T00:00:00Z",
+            "eventTimeZone": "UTC-4",
+            "previousStopId": null,
+            "nextStopId": "2"
+        }
+    ]
+}

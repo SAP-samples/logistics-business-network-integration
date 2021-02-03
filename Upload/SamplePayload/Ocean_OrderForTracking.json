@@ -1,0 +1,122 @@
+{
+    "technicalId": "xri://sap.com/id:LBN#10000042:QM7_910:OrderResource:TFM_1608036506-APHU6781041:FC",
+    "shipper": {
+        "shipperLBNID": "{{ShipperLbnId}}"
+    },
+    "carrier": {
+        "carrierLBNID": "{{CarrierLbnId}}"
+    },
+    "networkPartner": {
+        "networkPartnerLBNID": "{{NetworkPartnerLbnId}}"
+    },
+    "creationDateTimeUTC": "{{YearMonth}}-12-15T12:48:45.693Z",
+    "shipment": {
+        "orderId": "{{FOId}}",
+        "transportationMode": "01",
+        "transportMeans": {
+            "transportMeansStandardCode": "11",
+            "trackedObjects": [
+                {
+                    "Id": "CONTAINER_ID",
+                    "value": "{{ContainerId}}"
+                }
+            ]
+        },
+        "dangerousGoodsIndicator": false,
+        "incoterm": "CIF",
+        "carrierReferenceDocument": [],
+        "shippingType": "3",
+        "documentReference": [],
+        "totalNumberOfStops": 2,
+        "stops": [
+            {
+                "stopId": "1",
+                "ordinalNo": 1,
+                "location": {
+                    "Id": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:Location:LogisticLocation:PL1_LSO_PROD_PLANT",
+                    "address": {
+                        "city": "stuttgart",
+                        "country": "DE",
+                        "house": "120",
+                        "name": "N/A",
+                        "phoneNumber": "--",
+                        "postalCode": "70435",
+                        "region": "BW",
+                        "street": "Grenzstra��e"
+                    },
+                    "UNLOCODE": "DEFRA",
+                    "timeZone": "CET",
+                    "latitude": 48.82527777,
+                    "longitude": 9.16722222
+                },
+                "plannedEvents": [
+                    {
+                        "eventType": "LOAD_BEGIN",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T05:50:00Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T06:10:00Z"
+                    },
+                    {
+                        "eventType": "LOAD_END",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T05:50:00Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T06:10:00Z"
+                    },
+                    {
+                        "eventType": "DEPARTURE",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T05:50:00Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T06:10:00Z"
+                    },
+                    {
+                        "eventType": "POPU",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T05:50:00Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T06:10:00Z"
+                    }
+                ]
+            },
+            {
+                "stopId": "2",
+                "ordinalNo": 2,
+                "location": {
+                    "Id": "xri://sap.com/id:LBN#{{ShipperLbnId}}:QM7_910:Location:LogisticLocation:PL1_LSO_CUSTOMER_02",
+                    "address": {
+                        "country": "DE",
+                        "name": "N/A",
+                        "phoneNumber": "--"
+                    },
+                    "UNLOCODE": "DEHAM",
+                    "timeZone": "CET",
+                    "latitude": 48.39499999,
+                    "longitude": 10.93222222
+                },
+                "plannedEvents": [
+                    {
+                        "eventType": "UNLOAD_BEGIN",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T07:33:50Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T07:53:50Z"
+                    },
+                    {
+                        "eventType": "UNLOAD_END",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T07:33:50Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T07:53:50Z"
+                    },
+                    {
+                        "eventType": "ARRIV_DEST",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T07:33:50Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T07:53:50Z"
+                    },
+                    {
+                        "eventType": "POD",
+                        "plannedStartDateTimeUTC": "{{YearMonth}}-01-17T07:33:50Z",
+                        "plannedEndDateTimeUTC": "{{YearMonth}}-01-17T07:53:50Z"
+                    }
+                ]
+            }
+        ],
+        "stages": [
+            {
+                "stageId": "10",
+                "loadingStopId": "1",
+                "unloadingStopId": "2"
+            }
+        ]
+    }
+}

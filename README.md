@@ -144,7 +144,7 @@ License 8007133 – Free of charge Productive tenant for connectivity and transa
 #### C. Requesting the productive tenant  
 
 * If a shipper had not actively invited you, please send a request to LBN network enablement team via email: sap.dsc.network.enablement@sap.com.
-* Please request your productive tenant using the purchase order number you had received via following URL: https://www.sapstore.com/solutions/46399/SAP-Logistics-Business-Network%2C-Basic-Membership.
+* Please request your productive tenant using the purchase order number and the request URL you received via email.  
 * You may watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the required steps visually explained.
 
 #### D. Configuring Productive Tenant

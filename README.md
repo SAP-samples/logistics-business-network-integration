@@ -30,7 +30,8 @@ You can view the slides used in these presentations by clicking on this [link](U
   - [Tendering API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_arll0fdg)
   - [Subcontracting API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_0nq8qf49)
   - [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
-
+ 
+For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
 
 The administration guide for carriers can be found [here](https://help.sap.com/doc/3b6fba06913f47e29cff45d3e4f1f1cd/LBN/en-US/loiob076fa7d5070490582c68d261c20d5e8_EN.pdf) - it contains the following topics:
 - Onboarding
@@ -38,9 +39,6 @@ The administration guide for carriers can be found [here](https://help.sap.com/d
 - Connectivity
 - Security and Data Protection and Privacy
 - Monitoring & Troubleshooting
-
-  
-For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
 
 ## 2.) Request B2B test tenant and test technical user
 ![](Upload/2.png)

@@ -1,0 +1,769 @@
+{
+	"info": {
+		"_postman_id": "f16043d1-a5fb-4bec-a593-36a65a57a1c0",
+		"name": "Customer FTL Scenario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create FO",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.unset(\"TransportationOrderID\");\r",
+							"\r",
+							"var d = new Date();\r",
+							"//Reserved for Qualified trackingIds add and deletion test\r",
+							"pm.environment.set(\"TransportationOrderID\",d.getTime().toString().substr(0,10));\r",
+							"pm.environment.set(\"CreationDateTime\",d.toJSON());\r",
+							"\r",
+							"var utcD = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate() + 1, \"13\"));\r",
+							"\r",
+							"pm.environment.set(\"LOAD_BEGIN_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"LOAD_BEGIN_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 3);\r",
+							"pm.environment.set(\"LOAD_END_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"LOAD_END_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"ExpectedDepartureDateTime\",utcD.toJSON());\r",
+							"pm.environment.set(\"DEPARTURE_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"DEPARTURE_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 19);\r",
+							"pm.environment.set(\"ARRIV_DEST_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"ARRIV_DEST_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"UNLOAD_BEGIN_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"UNLOAD_BEGIN_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 3);\r",
+							"pm.environment.set(\"UNLOAD_END_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"UNLOAD_END_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"DELIVERED_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"DELIVERED_TechnicalExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"pm.environment.set(\"POD_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"pm.environment.set(\"ExpectedArrivalDateTime\",utcD.toJSON());\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"POD_TechnicalExpectedDateTime\",utcD.toJSON());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n    <SOAP-ENV:Body>\r\n        <n0:TransportationOrderGenericTrackedProcessRequest xmlns:n0=\"http://sap.com/xi/SAPGlobal20/Global\" xmlns:prx=\"urn:sap.com:proxy:QM7:/1SAI/TASC2615E1FAFECE44D0667:756\">\r\n            <MessageHeader>\r\n                <CreationDateTime>{{CreationDateTime}}</CreationDateTime>\r\n                <SenderBusinessSystemID>QM7_910</SenderBusinessSystemID>\r\n                <SenderParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </SenderParty>\r\n                <RecipientParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </RecipientParty>\r\n            </MessageHeader>\r\n            <TransportationOrderGenericTrackedProcess actionCode=\"04\" changeOrdinalNumberValue=\"1\">\r\n                <CategoryCode>TO</CategoryCode>\r\n                <ShippingTypeCode>18</ShippingTypeCode>\r\n                <DangerousGoodsIndicator>false</DangerousGoodsIndicator>\r\n                <CargoGrossWeightTotalQuantity unitCode=\"KGM\">2000.0</CargoGrossWeightTotalQuantity>\r\n                <CargoGrossVolumeTotalQuantity unitCode=\"MTQ\">1.0</CargoGrossVolumeTotalQuantity>\r\n                <PiecesTotalQuantity unitCode=\"EA\">1.0</PiecesTotalQuantity>\r\n                <TotalDistanceMeasure unitCode=\"KMT\">581.951</TotalDistanceMeasure>\r\n                <TotalNetDuration>PT7H19M5S</TotalNetDuration>\r\n                <StopsTotalNumberValue>2</StopsTotalNumberValue>\r\n                <ShipperParty/>\r\n                <OrderingParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68723</StreetPostalCode>\r\n                            <CityName>Plankstadt/Schwetzingen</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Brauereistraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Telephone>\r\n                                <Number>\r\n                                    <AreaID>06202</AreaID>\r\n                                    <SubscriberID>1234</SubscriberID>\r\n                                    <CountryCode>DE</CountryCode>\r\n                                    <CountryDiallingCode>49</CountryDiallingCode>\r\n                                </Number>\r\n                                <SMSEnabledIndicator>false</SMSEnabledIndicator>\r\n                                <NumberDefaultIndicator>true</NumberDefaultIndicator>\r\n                                <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>\r\n                            </Telephone>\r\n                            <Email>\r\n                                <URI>myemail@test.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </OrderingParty>\r\n                <PreferredCarrierParty>\r\n                    <InternalID>LBNE2EC01</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{CARRIER_LBN}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68169</StreetPostalCode>\r\n                            <CityName>Mannheim</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Industriestraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Email>\r\n                                <URI>salim.shaikh@sap.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </PreferredCarrierParty>\r\n                <Vehicle>\r\n                    <ID> </ID>\r\n                    <TransportMeansTypeCode>0001</TransportMeansTypeCode>\r\n                    <TransportMeansDescriptionCode>31</TransportMeansDescriptionCode>\r\n                </Vehicle>\r\n                <TransportationStage>\r\n                    <ID>10</ID>\r\n                    <OrdinalNumberValue>1</OrdinalNumberValue>\r\n                    <TransportModeCode listID=\"11719\">01</TransportModeCode>\r\n                    <LoadingLocationAddressTimeZoneCode>UTC-4</LoadingLocationAddressTimeZoneCode>\r\n                    <UnloadingLocationAddressTimeZoneCode>UTC-4</UnloadingLocationAddressTimeZoneCode>\r\n                    <ExpectedDepartureDateTime>{{ExpectedDepartureDateTime}}</ExpectedDepartureDateTime>\r\n                    <ExpectedDepartureDateTimeDSTRuleApplyIndicator>true</ExpectedDepartureDateTimeDSTRuleApplyIndicator>\r\n                    <ExpectedArrivalDateTime>{{ExpectedArrivalDateTime}}</ExpectedArrivalDateTime>\r\n                    <ExpectedArrivalDateTimeDSTRuleApplyIndicator>true</ExpectedArrivalDateTimeDSTRuleApplyIndicator>\r\n                    <MainLoadingLocation>\r\n                        <InternalID>{{SOURCE_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>Organic Nut Cultivation Inc.</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>US</CountryCode>\r\n                                <RegionCode>OH</RegionCode>\r\n                                <StreetPostalCode>45232</StreetPostalCode>\r\n                                <CityName>Cincinnati</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>6270 Este Ave</StreetName>\r\n                                <HouseID>8</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">39.1986037</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">-84.4955797</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainLoadingLocation>\r\n                    <MainLoadingStopID>10</MainLoadingStopID>\r\n                    <MainUnloadingLocation>\r\n                        <InternalID>{{DEST_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>ContainerPort Group Atlanta</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>US</CountryCode>\r\n                                <RegionCode>GA</RegionCode>\r\n                                <StreetPostalCode>30336</StreetPostalCode>\r\n                                <CityName>Atlanta</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>4220 M.L.K. Jr Dr SW</StreetName>\r\n                                <HouseID>1</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">33.7680817</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">-84.4906438</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainUnloadingLocation>\r\n                    <MainUnloadingStopID>20</MainUnloadingStopID>\r\n                </TransportationStage>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_BEGIN_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_BEGIN_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_BEGIN_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_BEGIN_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_BEGIN_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_BEGIN_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_END_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_END_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_END_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_END_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_END_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_END_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DEPARTURE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DEPARTURE_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DEPARTURE_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DEPARTURE_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DEPARTURE_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DEPARTURE_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DEPARTURE_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>ARRIV_DEST</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{ARRIV_DEST_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{ARRIV_DEST_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{ARRIV_DEST_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{ARRIV_DEST_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{ARRIV_DEST_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{ARRIV_DEST_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_BEGIN_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_BEGIN_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_BEGIN_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_BEGIN_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_END_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_END_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_END_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_END_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_END_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_END_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DELIVERED</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DELIVERED_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DELIVERED_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DELIVERED_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DELIVERED_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DELIVERED_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DELIVERED_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>POD</EventTypeCode>\r\n                    <LastExpectedEventIndicator>true</LastExpectedEventIndicator>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{POD_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{POD_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{POD_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{POD_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{POD_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{POD_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <ObjectReference>\r\n                    <TransportationOrderID>{{TransportationOrderID}}</TransportationOrderID>\r\n                </ObjectReference>\r\n            </TransportationOrderGenericTrackedProcess>\r\n        </n0:TransportationOrderGenericTrackedProcessRequest>\r\n    </SOAP-ENV:Body>\r\n</SOAP-ENV:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_FO_BASE_URL}}/cxf/lbn/b2b/soap/v1",
+					"host": [
+						"{{CPI_POST_FO_BASE_URL}}"
+					],
+					"path": [
+						"cxf",
+						"lbn",
+						"b2b",
+						"soap",
+						"v1"
+					]
+				},
+				"description": "#### Changing Carrier or Shipper\n---\nCarrier and shipper can be changed from environment variables. For carrier we have `CARRIER_LBN` variable and for shipper we have `SHIPPER_LBN_ID` variable.\n\n#### Changing Source and Destination locations\n---\n**Source Location:** In the XML payload we have a property called `<MainLoadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n**Destination Location:** In the XML payload we have a property called `<MainUnloadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n\n***NOTE***: If location is not present in location master app it will be created when the FO will be posted.\n\n#### Overriding date values\n---\nAll date and time used in this postman collection are generated dynamically when we post a new freight order. Overriding those values is a little tricky but possible.\n\ne.g. if we want to change the `LOAD_BEGIN`'s `BusinessExpectedDateTime`, instead of passing the variable `LOAD_BEGIN_BusinessExpectedDateTime`\nwe can directly pass the date/time (in this format `2021-05-22T12:20:00.000Z`). After that we must change the value of `LOAD_BEGIN_BusinessExpectedDateTime` in postman's environment variable with the actual value that we have overridden with.\n\nThe above case is only applicable while overriding values in Create freight order payload. For events we can directly replace the variables with timestamp values."
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch JWT Token for posting events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"JWT_FOR_POSTING_EVENTS\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://oauthasservices-a46089868.hana.ondemand.com/oauth2/api/v1/token?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"oauthasservices-a46089868",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"api",
+						"v1",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Load Begin Event for stop 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"LOAD_BEGIN_BusinessExpectedDateTime\"));\r",
+							"pm.variables.set(\"LOAD_BEGIN_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Load End Event for stop 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadEndTechnicalDate = new Date(pm.environment.get(\"LOAD_END_BusinessExpectedDateTime\"));\r",
+							"loadEndTechnicalDate.setMinutes(loadEndTechnicalDate.getMinutes() + 15)\r",
+							"pm.variables.set(\"LOAD_END_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Departure Event for stop 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var departureTechnicalDate = new Date(pm.environment.get(\"DEPARTURE_BusinessExpectedDateTime\"));\r",
+							"pm.variables.set(\"DEPARTURE_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"DEPARTURE\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{DEPARTURE_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Geo Location update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var departureTechnicalDate = new Date(pm.environment.get(\"DEPARTURE_BusinessExpectedDateTime\"));\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 6);\r",
+							"pm.variables.set(\"GEO_1_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 6);\r",
+							"pm.variables.set(\"GEO_2_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 7);\r",
+							"pm.variables.set(\"GEO_3_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"var estArrival = new Date(pm.environment.get(\"ExpectedArrivalDateTime\"));\r",
+							"estArrival.setHours(estArrival.getHours() + 3);\r",
+							"pm.variables.set(\"EST_ARR_1_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 3);\r",
+							"pm.variables.set(\"EST_ARR_2_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 1);\r",
+							"pm.variables.set(\"EST_ARR_3_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"shipper\": {\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\n    },\n    \"carrier\": {\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\n    },\n    \"networkPartner\": {\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\n    },\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\n    \"orderId\": \"{{TransportationOrderID}}\",\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\n    \"events\": [\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": 38.251997,\n                \"longitude\": -85.743421,\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_1_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_1_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        }, {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": 37.127943,\n                \"longitude\": -84.084045,\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_2_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_2_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        }, {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": 35.237137,\n                \"longitude\": -85.850072,\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_3_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_3_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Arrival Event for stop 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_BusinessExpectedDateTime\"));\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Unload Begin Event for stop 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var unloadBegin = new Date(pm.environment.get(\"UNLOAD_BEGIN_BusinessExpectedDateTime\"));\r",
+							"pm.variables.set(\"UNLOAD_BEGIN_DATE_TIME\", unloadBegin.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", unloadBegin.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Unload End Event for stop 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var unloadEnd = new Date(pm.environment.get(\"UNLOAD_END_BusinessExpectedDateTime\"));\r",
+							"unloadEnd.setMinutes(unloadEnd.getMinutes() - 15);\r",
+							"pm.variables.set(\"UNLOAD_END_DATE_TIME\", unloadEnd.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", unloadEnd.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Delivered Event for stop 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var delivered = new Date(pm.environment.get(\"DELIVERED_BusinessExpectedDateTime\"));\r",
+							"pm.variables.set(\"DELIVERED_DATE_TIME\", delivered.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", delivered.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"DELIVERED\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{DELIVERED_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST POD Event for stop 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var pod = new Date(pm.environment.get(\"POD_BusinessExpectedDateTime\"));\r",
+							"pod.setHours(pod.getHours() + 1);\r",
+							"pm.variables.set(\"POD_DATE_TIME\", pod.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", pod.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{networkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"POD\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{POD_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null,\r\n            \"attachments\": [ { \"fileUrl\": \"https://images.app.goo.gl/rW9nt9vJi4MVQRxr9\", \"fileName\": \"Pickup\"} ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete FO",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n    <SOAP-ENV:Body>\r\n        <n0:TransportationOrderGenericTrackedProcessRequest xmlns:n0=\"http://sap.com/xi/SAPGlobal20/Global\" xmlns:prx=\"urn:sap.com:proxy:QM7:/1SAI/TASC2615E1FAFECE44D0667:756\">\r\n            <MessageHeader>\r\n                <CreationDateTime>{{CreationDateTime}}</CreationDateTime>\r\n                <SenderBusinessSystemID>QM7_910</SenderBusinessSystemID>\r\n                <SenderParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </SenderParty>\r\n                <RecipientParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{CARRIER_LBN}}</StandardID>\r\n                </RecipientParty>\r\n            </MessageHeader>\r\n            <TransportationOrderGenericTrackedProcess actionCode=\"05\" changeOrdinalNumberValue=\"1\">\r\n                <CategoryCode>TO</CategoryCode>\r\n                <ShippingTypeCode>17</ShippingTypeCode>\r\n                <MovementTypeCode>1</MovementTypeCode>\r\n                <DangerousGoodsIndicator>false</DangerousGoodsIndicator>\r\n                <CargoGrossWeightTotalQuantity unitCode=\"KGM\">3000.0</CargoGrossWeightTotalQuantity>\r\n                <CargoGrossVolumeTotalQuantity unitCode=\"MTQ\">2.0</CargoGrossVolumeTotalQuantity>\r\n                <PiecesTotalQuantity unitCode=\"EA\">2.0</PiecesTotalQuantity>\r\n                <TotalDistanceMeasure unitCode=\"KMT\">814.952</TotalDistanceMeasure>\r\n                <TotalNetDuration>PT9H12M11S</TotalNetDuration>\r\n                <StopsTotalNumberValue>2</StopsTotalNumberValue>\r\n                <ShipperParty/>\r\n                <OrderingParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68723</StreetPostalCode>\r\n                            <CityName>Plankstadt/Schwetzingen</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Brauereistraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Telephone>\r\n                                <Number>\r\n                                    <AreaID>06202</AreaID>\r\n                                    <SubscriberID>1234</SubscriberID>\r\n                                    <CountryCode>DE</CountryCode>\r\n                                    <CountryDiallingCode>49</CountryDiallingCode>\r\n                                </Number>\r\n                                <SMSEnabledIndicator>false</SMSEnabledIndicator>\r\n                                <NumberDefaultIndicator>true</NumberDefaultIndicator>\r\n                                <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>\r\n                            </Telephone>\r\n                            <Email>\r\n                                <URI>myemail@test.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </OrderingParty>\r\n                <PreferredCarrierParty>\r\n                    <InternalID>LBNE2EC01</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{CARRIER_LBN}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68169</StreetPostalCode>\r\n                            <CityName>Mannheim</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Industriestraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Email>\r\n                                <URI>salim.shaikh@sap.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </PreferredCarrierParty>\r\n                <Vehicle>\r\n                    <ID> </ID>\r\n                    <TransportMeansTypeCode>0001</TransportMeansTypeCode>\r\n                    <TransportMeansDescriptionCode>31</TransportMeansDescriptionCode>\r\n                </Vehicle>\r\n                <TransportationStage>\r\n                    <ID>10</ID>\r\n                    <OrdinalNumberValue>1</OrdinalNumberValue>\r\n                    <TransportModeCode listID=\"11719\">01</TransportModeCode>\r\n                    <LoadingLocationAddressTimeZoneCode>UTC+53</LoadingLocationAddressTimeZoneCode>\r\n                    <UnloadingLocationAddressTimeZoneCode>UTC+53</UnloadingLocationAddressTimeZoneCode>\r\n                    <ExpectedDepartureDateTime>{{ExpectedDepartureDateTime}}</ExpectedDepartureDateTime>\r\n                    <ExpectedDepartureDateTimeDSTRuleApplyIndicator>true</ExpectedDepartureDateTimeDSTRuleApplyIndicator>\r\n                    <ExpectedArrivalDateTime>{{ExpectedArrivalDateTime}}</ExpectedArrivalDateTime>\r\n                    <ExpectedArrivalDateTimeDSTRuleApplyIndicator>true</ExpectedArrivalDateTimeDSTRuleApplyIndicator>\r\n                    <MainLoadingLocation>\r\n                        <InternalID>{{SOURCE_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>Sai Shambhu Traders Co</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>IN</CountryCode>\r\n                                <RegionCode>OR</RegionCode>\r\n                                <StreetPostalCode>759121</StreetPostalCode>\r\n                                <CityName>Meramandali</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>Dhenkanal, Cuttack Samabalpur</StreetName>\r\n                                <HouseID>42</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">20.7786781</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">85.3358434</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainLoadingLocation>\r\n                    <MainLoadingStopID>10</MainLoadingStopID>\r\n                    <MainUnloadingLocation>\r\n                        <InternalID>{{DEST_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>ADA Building</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>IN</CountryCode>\r\n                                <RegionCode>KA</RegionCode>\r\n                                <StreetPostalCode>560001</StreetPostalCode>\r\n                                <CityName>Bengaluru</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>HSR Layout, Ashok Nagar</StreetName>\r\n                                <HouseID>4</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">12.9716852</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">77.5945748</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainUnloadingLocation>\r\n                    <MainUnloadingStopID>20</MainUnloadingStopID>\r\n                </TransportationStage>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_BEGIN_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_BEGIN_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_BEGIN_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_BEGIN_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_BEGIN_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_BEGIN_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_END_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_END_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_END_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_END_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_END_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_END_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DEPARTURE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DEPARTURE_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DEPARTURE_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DEPARTURE_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DEPARTURE_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DEPARTURE_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DEPARTURE_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>ARRIV_DEST</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{ARRIV_DEST_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{ARRIV_DEST_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{ARRIV_DEST_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{ARRIV_DEST_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{ARRIV_DEST_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{ARRIV_DEST_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_BEGIN_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_BEGIN_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_BEGIN_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_BEGIN_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_END_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_END_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_END_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_END_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_END_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_END_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DELIVERED</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DELIVERED_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DELIVERED_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DELIVERED_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DELIVERED_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DELIVERED_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DELIVERED_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>POD</EventTypeCode>\r\n                    <LastExpectedEventIndicator>true</LastExpectedEventIndicator>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{POD_BusinessExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{POD_BusinessExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{POD_BusinessExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{POD_TechnicalExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{POD_TechnicalExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{POD_TechnicalExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <BusinessTransactionDocumentReference>\r\n                    <BusinessTransactionDocumentReference>\r\n                        <ID>DN123</ID>\r\n                    </BusinessTransactionDocumentReference>\r\n                    <TransportationDocumentTypeCode>BN</TransportationDocumentTypeCode>\r\n                </BusinessTransactionDocumentReference>\r\n                <ObjectReference>\r\n                    <TransportationOrderID>{{TransportationOrderID}}</TransportationOrderID>\r\n                </ObjectReference>\r\n            </TransportationOrderGenericTrackedProcess>\r\n        </n0:TransportationOrderGenericTrackedProcessRequest>\r\n    </SOAP-ENV:Body>\r\n</SOAP-ENV:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_FO_BASE_URL}}/cxf/lbn/b2b/soap/v1",
+					"host": [
+						"{{CPI_POST_FO_BASE_URL}}"
+					],
+					"path": [
+						"cxf",
+						"lbn",
+						"b2b",
+						"soap",
+						"v1"
+					]
+				},
+				"description": "#### Changing Carrier or Shipper\n---\nCarrier and shipper can be changed from environment variables. For carrier we have `CARRIER_LBN` variable and for shipper we have `SHIPPER_LBN_ID` variable.\n\n#### Changing Source and Destination locations\n---\n**Source Location:** In the XML payload we have a property called `<MainLoadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n**Destination Location:** In the XML payload we have a property called `<MainUnloadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n\n***NOTE***: If location is not present in location master app it will be created when the FO will be posted.\n\n#### Overriding date values\n---\nAll date and time used in this postman collection are generated dynamically when we post a new freight order. Overriding those values is a little tricky but possible.\n\ne.g. if we want to change the `LOAD_BEGIN`'s `BusinessExpectedDateTime`, instead of passing the variable `LOAD_BEGIN_BusinessExpectedDateTime`\nwe can directly pass the date/time (in this format `2021-05-22T12:20:00.000Z`). After that we must change the value of `LOAD_BEGIN_BusinessExpectedDateTime` in postman's environment variable with the actual value that we have overridden with.\n\nThe above case is only applicable while overriding values in Create freight order payload. For events we can directly replace the variables with timestamp values."
+			},
+			"response": []
+		}
+	]
+}

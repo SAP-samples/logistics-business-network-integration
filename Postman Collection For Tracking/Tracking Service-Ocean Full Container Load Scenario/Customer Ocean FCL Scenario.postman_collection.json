@@ -1,0 +1,2172 @@
+{
+	"info": {
+		"_postman_id": "9f46f7e5-f6aa-418b-bb0d-6d912df65b4c",
+		"name": "Customer Ocean FCL Scenario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Ocean Freight Booking",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.unset(\"TransportationOrderID\");\r",
+							"\r",
+							"var d = new Date();\r",
+							"//Reserved for Qualified trackingIds add and deletion test\r",
+							"pm.environment.set(\"TransportationOrderID\",d.getTime().toString().substr(0,10));\r",
+							"pm.environment.set(\"CreationDateTime\",d.toJSON());\r",
+							"\r",
+							"var utcD = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate() + 1, \"13\"));\r",
+							"\r",
+							"pm.environment.set(\"ARRIV_DEST_TRUCK_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2 );\r",
+							"pm.environment.set(\"GATEIN_START_TRUCK_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2 );\r",
+							"pm.environment.set(\"GATEIN_END_TRUCK_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 4 );\r",
+							"pm.environment.set(\"UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 3);\r",
+							"pm.environment.set(\"UNLOAD_END_CONTAINER_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2 );\r",
+							"pm.environment.set(\"RECEIVE_CONTAINER_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 10 );\r",
+							"pm.environment.set(\"ARRIV_DEST_VESSEL_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 3 );\r",
+							"pm.environment.set(\"LOAD_BEGIN_VESSEL_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"LOAD_END_VESSEL_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 6 );\r",
+							"pm.environment.set(\"DEPARTURE_VESSEL_POO_ExpectedDateTime\",utcD.toJSON());\r",
+							"pm.environment.set(\"ExpectedDepartureDateTime\", utcD.toJSON());\r",
+							"\r",
+							"//Port of Origin events completed\r",
+							"utcD.setDate(utcD.getDate() + 11);\r",
+							"utcD.setHours(utcD.getHours() + 4);\r",
+							"pm.environment.set(\"ARRIV_DEST_TRUCK_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"ARRIV_DEST_VESSEL_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2);\r",
+							"pm.environment.set(\"UNLOAD_BEGIN_CONTAINER_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2);\r",
+							"pm.environment.set(\"UNLOAD_END_CONTAINER_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 8);\r",
+							"pm.environment.set(\"LOAD_BEGIN_CONTAINER_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 3);\r",
+							"pm.environment.set(\"LOAD_END_CONTAINER_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 4);\r",
+							"pm.environment.set(\"DEPARTURE_VESSEL_TP_ExpectedDateTime\", utcD.toJSON());\r",
+							"\r",
+							"//Transshipment Port Events completed\r",
+							"\r",
+							"utcD.setDate(utcD.getDate() + 11);\r",
+							"\r",
+							"pm.environment.set(\"ARRIV_DEST_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1 );\r",
+							"pm.environment.set(\"ARRIV_DEST_VESSEL_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setMinutes(utcD.getMinutes() - 30 );\r",
+							"pm.environment.set(\"GATEIN_START_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2);\r",
+							"pm.environment.set(\"GATEIN_END_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1 );\r",
+							"pm.environment.set(\"UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2);\r",
+							"pm.environment.set(\"UNLOAD_END_CONTAINER_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"//utcD.setMinutes(utcD.getMinutes() - 30);\r",
+							"//pm.environment.set(\"ARRIV_DEST_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"LOAD_BEGIN_VESSEL_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"LOAD_END_VESSEL_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setMinutes(utcD.getMinutes() + 25);\r",
+							"pm.environment.set(\"GATEOUT_START_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 2);\r",
+							"pm.environment.set(\"GATEOUT_END_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setHours(utcD.getHours() + 1);\r",
+							"pm.environment.set(\"DELIVERED_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"utcD.setMinutes(utcD.getMinutes() + 5);\r",
+							"pm.environment.set(\"DEPARTURE_TRUCK_POD_ExpectedDateTime\",utcD.toJSON());\r",
+							"//pm.environment.set(\"POD_BusinessExpectedDateTime\",utcD.toJSON());\r",
+							"\r",
+							"pm.environment.set(\"ExpectedArrivalDateTime\", utcD.toJSON()) ;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n    <SOAP-ENV:Body>\r\n        <n0:TransportationOrderGenericTrackedProcessRequest xmlns:n0=\"http://sap.com/xi/SAPGlobal20/Global\" xmlns:prx=\"urn:sap.com:proxy:QM7:/1SAI/TASC2615E1FAFECE44D0667:757\">\r\n            <MessageHeader>\r\n                <CreationDateTime>{{CreationDateTime}}</CreationDateTime>\r\n                <SenderBusinessSystemID>QM7_910</SenderBusinessSystemID>\r\n                <SenderParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </SenderParty>\r\n                <RecipientParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </RecipientParty>\r\n            </MessageHeader>\r\n            <TransportationOrderGenericTrackedProcess actionCode=\"04\" changeOrdinalNumberValue=\"1\">\r\n                <CategoryCode>BO</CategoryCode>\r\n                <ShippingTypeCode>3</ShippingTypeCode>\r\n                <MovementTypeCode>1</MovementTypeCode>\r\n                <CargoGrossWeightTotalQuantity unitCode=\"KGM\">8140.0</CargoGrossWeightTotalQuantity>\r\n                <CargoGrossVolumeTotalQuantity unitCode=\"MTQ\">1.5</CargoGrossVolumeTotalQuantity>\r\n                <PiecesTotalQuantity unitCode=\"EA\">2.0</PiecesTotalQuantity>\r\n                <TotalDistanceMeasure unitCode=\"KMT\">6147.919146</TotalDistanceMeasure>\r\n                <TotalNetDuration>PT204H55M50S</TotalNetDuration>\r\n                <StopsTotalNumberValue>2</StopsTotalNumberValue>\r\n                <LoadingLocationsTotalNumberValue>1</LoadingLocationsTotalNumberValue>\r\n                <UnloadingLocationsTotalNumberValue>1</UnloadingLocationsTotalNumberValue>\r\n                <ShipperParty />\r\n                <OrderingParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68723</StreetPostalCode>\r\n                            <CityName>Plankstadt/Schwetzingen</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Brauereistraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Telephone>\r\n                                <Number>\r\n                                    <AreaID>06202</AreaID>\r\n                                    <SubscriberID>1234</SubscriberID>\r\n                                    <CountryCode>DE</CountryCode>\r\n                                    <CountryDiallingCode>49</CountryDiallingCode>\r\n                                </Number>\r\n                                <SMSEnabledIndicator>false</SMSEnabledIndicator>\r\n                                <NumberDefaultIndicator>true</NumberDefaultIndicator>\r\n                                <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>\r\n                            </Telephone>\r\n                            <Email>\r\n                                <URI>myemail@test.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </OrderingParty>\r\n                <PreferredCarrierParty>\r\n                    <InternalID>LBNE2EC01</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{CARRIER_LBN}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68169</StreetPostalCode>\r\n                            <CityName>Mannheim</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Industriestraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Email>\r\n                                <URI>salim.shaikh@sap.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </PreferredCarrierParty>\r\n                <TransportationStage>\r\n                    <ID>10</ID>\r\n                    <OrdinalNumberValue>1</OrdinalNumberValue>\r\n                    <TransportModeCode listID=\"11719\">02</TransportModeCode>\r\n                    <LoadingLocationAddressTimeZoneCode>CET</LoadingLocationAddressTimeZoneCode>\r\n                    <UnloadingLocationAddressTimeZoneCode>UTC-4</UnloadingLocationAddressTimeZoneCode>\r\n                    <ExpectedDepartureDateTime>{{ExpectedDepartureDateTime}}</ExpectedDepartureDateTime>\r\n                    <ExpectedDepartureDateTimeDSTRuleApplyIndicator>true</ExpectedDepartureDateTimeDSTRuleApplyIndicator>\r\n                    <ExpectedArrivalDateTime>{{ExpectedArrivalDateTime}}</ExpectedArrivalDateTime>\r\n                    <ExpectedArrivalDateTimeDSTRuleApplyIndicator>true</ExpectedArrivalDateTimeDSTRuleApplyIndicator>\r\n                    <MainLoadingLocation>\r\n                        <InternalID>{{SOURCE_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>Port of Hamburg</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>DE</CountryCode>\r\n                                <RegionCode>HH</RegionCode>\r\n                                <StreetPostalCode>21107</StreetPostalCode>\r\n                                <CityName>Hamburg</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>1 Rethedamm</StreetName>\r\n                                <HouseID>8</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">53.502831</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">9.968507</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainLoadingLocation>\r\n                    <MainLoadingStopID>10</MainLoadingStopID>\r\n                    <MainUnloadingLocation>\r\n                        <InternalID>{{DEST_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>Port of New York</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>US</CountryCode>\r\n                                <RegionCode>NY</RegionCode>\r\n                                <StreetPostalCode>10305</StreetPostalCode>\r\n                                <CityName>New York</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>183 Edgewater Street</StreetName>\r\n                                <HouseID>8</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">40.6904632</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">-74.129194</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainUnloadingLocation>\r\n                    <MainUnloadingStopID>20</MainUnloadingStopID>\r\n                </TransportationStage>\r\n                <DeliveryTerms>\r\n                    <Incoterms>\r\n                        <ClassificationCode>FOB</ClassificationCode>\r\n                    </Incoterms>\r\n                </DeliveryTerms>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>GATEIN_START</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{GATEIN_START_TRUCK_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{GATEIN_START_TRUCK_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{GATEIN_START_TRUCK_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{GATEIN_START_TRUCK_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{GATEIN_START_TRUCK_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{GATEIN_START_TRUCK_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>GATEIN_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{GATEIN_END_TRUCK_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{GATEIN_END_TRUCK_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{GATEIN_END_TRUCK_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{GATEIN_END_TRUCK_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{GATEIN_END_TRUCK_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{GATEIN_END_TRUCK_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>RECEIVE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{RECEIVE_CONTAINER_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{RECEIVE_CONTAINER_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{RECEIVE_CONTAINER_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{RECEIVE_CONTAINER_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{RECEIVE_CONTAINER_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{RECEIVE_CONTAINER_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DEPARTURE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>GATEIN_START</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{GATEIN_START_TRUCK_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{GATEIN_START_TRUCK_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{GATEIN_START_TRUCK_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{GATEIN_START_TRUCK_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{GATEIN_START_TRUCK_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{GATEIN_START_TRUCK_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>GATEIN_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{GATEIN_END_TRUCK_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{GATEIN_END_TRUCK_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{GATEIN_END_TRUCK_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{GATEIN_END_TRUCK_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{GATEIN_END_TRUCK_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{GATEIN_END_TRUCK_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_END_VESSEL_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_END_VESSEL_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_END_VESSEL_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_END_VESSEL_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_END_VESSEL_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_END_VESSEL_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>GATEOUT_START</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{GATEOUT_START_TRUCK_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{GATEOUT_START_TRUCK_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{GATEOUT_START_TRUCK_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{GATEOUT_START_TRUCK_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{GATEOUT_START_TRUCK_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{GATEOUT_START_TRUCK_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>GATEOUT_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{GATEOUT_END_TRUCK_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{GATEOUT_END_TRUCK_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{GATEOUT_END_TRUCK_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{GATEOUT_END_TRUCK_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{GATEOUT_END_TRUCK_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{GATEOUT_END_TRUCK_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DEPARTURE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <ObjectReference>\r\n                    <TransportationOrderID>{{TransportationOrderID}}</TransportationOrderID>\r\n                </ObjectReference>\r\n            </TransportationOrderGenericTrackedProcess>\r\n        </n0:TransportationOrderGenericTrackedProcessRequest>\r\n    </SOAP-ENV:Body>\r\n</SOAP-ENV:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_FO_BASE_URL}}/cxf/lbn/b2b/soap/v1",
+					"host": [
+						"{{CPI_POST_FO_BASE_URL}}"
+					],
+					"path": [
+						"cxf",
+						"lbn",
+						"b2b",
+						"soap",
+						"v1"
+					]
+				},
+				"description": "#### Changing Carrier or Shipper\n---\nCarrier and shipper can be changed from environment variables. For carrier we have `CARRIER_LBN` variable and for shipper we have `SHIPPER_LBN_ID` variable.\n\n#### Changing Source and Destination locations\n---\n**Source Location:** In the XML payload we have a property called `<MainLoadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n**Destination Location:** In the XML payload we have a property called `<MainUnloadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n\n***NOTE***: If location is not present in location master app it will be created when the FO will be posted.\n\n#### Overriding date values\n---\nAll date and time used in this postman collection are generated dynamically when we post a new freight order. Overriding those values is a little tricky but possible.\n\ne.g. if we want to change the `LOAD_BEGIN`'s `BusinessExpectedDateTime`, instead of passing the variable `LOAD_BEGIN_BusinessExpectedDateTime`\nwe can directly pass the date/time (in this format `2021-05-22T12:20:00.000Z`). After that we must change the value of `LOAD_BEGIN_BusinessExpectedDateTime` in postman's environment variable with the actual value that we have overridden with.\n\nThe above case is only applicable while overriding values in Create freight order payload. For events we can directly replace the variables with timestamp values."
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch JWT Token for posting events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"JWT_FOR_POSTING_EVENTS\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{oAuthUrl}}/oauth2/api/v1/token?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"{{oAuthUrl}}"
+					],
+					"path": [
+						"oauth2",
+						"api",
+						"v1",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : arrival of Truck(LOADED) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_TRUCK_POO_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : gatein_start of Truck(LOADED) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"GATEIN_START_TRUCK_POO_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"GATEIN_START_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"GATEIN_START\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{GATEIN_START_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : gatein_end of Truck(LOADED) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"GATEIN_END_TRUCK_POO_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"GATEIN_END_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"GATEIN_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{GATEIN_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : unload_begin of Container (FULL) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"UNLOAD_BEGIN_CONTAINER_POO_ExpectedDateTime\"));\r",
+							"//LOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"UNLOAD_BEGIN_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : unload_end of Container (FULL) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"UNLOAD_END_CONTAINER_POO_ExpectedDateTime\"));\r",
+							"//LOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"UNLOAD_BEGIN_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : receive of Container (FULL) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"RECEIVE_CONTAINER_POO_ExpectedDateTime\"));\r",
+							"//LOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"RECEIVE_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"RECEIVE\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{RECEIVE_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : arrival of Vessel at Port of origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_VESSEL_POO_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : load_begin of Container (FULL) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"LOAD_BEGIN_VESSEL_POO_ExpectedDateTime\"));\r",
+							"//LOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"LOAD_BEGIN_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : load_end of Container (FULL) at Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadEndTechnicalDate = new Date(pm.environment.get(\"LOAD_END_VESSEL_POO_ExpectedDateTime\"));\r",
+							"//LOAD_END_VESSEL_POO_ExpectedDateTime\r",
+							"loadEndTechnicalDate.setMinutes(loadEndTechnicalDate.getMinutes() + 15)\r",
+							"pm.variables.set(\"LOAD_END_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : departure of Vessel from Port of Origin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var departureTechnicalDate = new Date(pm.environment.get(\"DEPARTURE_VESSEL_POO_ExpectedDateTime\"));\r",
+							"//DEPARTURE_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"DEPARTURE_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"DEPARTURE\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"1\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{DEPARTURE_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : arrival of Truck (EMPTY) at Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_TRUCK_TP_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : arrival of Vessel at Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_VESSEL_TP_ExpectedDateTime\"));\r",
+							"//ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : unload_begin of Container (FULL) at Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var unloadBegin = new Date(pm.environment.get(\"UNLOAD_BEGIN_CONTAINER_TP_ExpectedDateTime\"));\r",
+							"//UNLOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"UNLOAD_BEGIN_DATE_TIME\", unloadBegin.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", unloadBegin.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : unload_end of Container (FULL) at Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var unloadEnd = new Date(pm.environment.get(\"UNLOAD_END_CONTAINER_TP_ExpectedDateTime\"));\r",
+							"//UNLOAD_END_BusinessExpectedDateTime\r",
+							"unloadEnd.setMinutes(unloadEnd.getMinutes() - 15);\r",
+							"pm.variables.set(\"UNLOAD_END_DATE_TIME\", unloadEnd.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", unloadEnd.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : load_begin of Container (FULL) at Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"LOAD_BEGIN_CONTAINER_TP_ExpectedDateTime\"));\r",
+							"//LOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"LOAD_BEGIN_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": null,\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : load_end of Container (FULL) at Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadEndTechnicalDate = new Date(pm.environment.get(\"LOAD_END_CONTAINER_TP_ExpectedDateTime\"));\r",
+							"//LOAD_END_VESSEL_POO_ExpectedDateTime\r",
+							"loadEndTechnicalDate.setMinutes(loadEndTechnicalDate.getMinutes() + 15)\r",
+							"pm.variables.set(\"LOAD_END_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : departure of Vessel from Transshipment Port",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var departureTechnicalDate = new Date(pm.environment.get(\"DEPARTURE_VESSEL_TP_ExpectedDateTime\"));\r",
+							"//DEPARTURE_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"DEPARTURE_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"DEPARTURE\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{TRANS_SHIP_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{DEPARTURE_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : geoloc updates",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var departureTechnicalDate = new Date(pm.environment.get(\"DEPARTURE_VESSEL_POO_ExpectedDateTime\"));\r",
+							"//Geoloc updates after departure from Port of Origin\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 10 );\r",
+							"pm.variables.set(\"GEO_01_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 18 );\r",
+							"pm.variables.set(\"GEO_02_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 22 );\r",
+							"pm.variables.set(\"GEO_03_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 20 );\r",
+							"pm.variables.set(\"GEO_04_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 28 );\r",
+							"pm.variables.set(\"GEO_05_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 28 );\r",
+							"pm.variables.set(\"GEO_06_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 20 );\r",
+							"pm.variables.set(\"GEO_07_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 28 );\r",
+							"pm.variables.set(\"GEO_08_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"//Geoloc Updates after departure from transshipment port\r",
+							"departureTechnicalDate = new Date(pm.environment.get(\"DEPARTURE_VESSEL_TP_ExpectedDateTime\"));\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 28 );\r",
+							"pm.variables.set(\"GEO_09_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 26 );\r",
+							"pm.variables.set(\"GEO_10_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 26 );\r",
+							"pm.variables.set(\"GEO_11_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 25 );\r",
+							"pm.variables.set(\"GEO_12_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 28 );\r",
+							"pm.variables.set(\"GEO_13_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 22 );\r",
+							"pm.variables.set(\"GEO_14_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 24 );\r",
+							"pm.variables.set(\"GEO_15_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 20 );\r",
+							"pm.variables.set(\"GEO_16_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"departureTechnicalDate.setHours(departureTechnicalDate.getHours() + 25 );\r",
+							"pm.variables.set(\"GEO_17_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"var estArrival = new Date(pm.environment.get(\"ARRIV_DEST_VESSEL_POD_ExpectedDateTime\"));\r",
+							"estArrival.setHours(estArrival.getHours() + 3);\r",
+							"pm.variables.set(\"EST_ARR_01_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 3);\r",
+							"pm.variables.set(\"EST_ARR_02_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 1);\r",
+							"pm.variables.set(\"EST_ARR_03_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() + 2);\r",
+							"pm.variables.set(\"EST_ARR_04_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() + 4);\r",
+							"pm.variables.set(\"EST_ARR_05_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 1);\r",
+							"pm.variables.set(\"EST_ARR_06_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 1);\r",
+							"pm.variables.set(\"EST_ARR_07_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() + 1);\r",
+							"pm.variables.set(\"EST_ARR_08_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() + 4);\r",
+							"pm.variables.set(\"EST_ARR_09_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() + 8);\r",
+							"pm.variables.set(\"EST_ARR_10_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 3);\r",
+							"pm.variables.set(\"EST_ARR_11_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() + 1);\r",
+							"pm.variables.set(\"EST_ARR_12_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 3);\r",
+							"pm.variables.set(\"EST_ARR_13_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 2);\r",
+							"pm.variables.set(\"EST_ARR_14_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 1);\r",
+							"pm.variables.set(\"EST_ARR_15_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 3);\r",
+							"pm.variables.set(\"EST_ARR_16_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"estArrival.setHours(estArrival.getHours() - 2);\r",
+							"pm.variables.set(\"EST_ARR_17_DATE_TIME\", estArrival.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", departureTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"shipper\": {\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\n    },\n    \"carrier\": {\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\n    },\n    \"networkPartner\": {\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\n    },\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\n    \"orderId\": \"{{TransportationOrderID}}\",\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\n    \"events\": [\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_01-Latitude}},\n                \"longitude\": {{GEO-LOC_01-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_01_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_01_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        }, {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_02-Latitude}},\n                \"longitude\": {{GEO-LOC_02-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_02_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_02_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        }, {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_03-Latitude}},\n                \"longitude\": {{GEO-LOC_03-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_03_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_03_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_04-Latitude}},\n                \"longitude\": {{GEO-LOC_04-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_04_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_04_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_05-Latitude}},\n                \"longitude\": {{GEO-LOC_05-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_05_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_05_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_06-Latitude}},\n                \"longitude\": {{GEO-LOC_06-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_06_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_06_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_07-Latitude}},\n                \"longitude\": {{GEO-LOC_07-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_07_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_07_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_08-Latitude}},\n                \"longitude\": {{GEO-LOC_08-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_08_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_08_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_09-Latitude}},\n                \"longitude\": {{GEO-LOC_09-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_09_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_09_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_10-Latitude}},\n                \"longitude\": {{GEO-LOC_10-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_10_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_10_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_11-Latitude}},\n                \"longitude\": {{GEO-LOC_11-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_11_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_11_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_12-Latitude}},\n                \"longitude\": {{GEO-LOC_12-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_12_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_12_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_13-Latitude}},\n                \"longitude\": {{GEO-LOC_13-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_13_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_13_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_14-Latitude}},\n                \"longitude\": {{GEO-LOC_14-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_14_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_14_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_15-Latitude}},\n                \"longitude\": {{GEO-LOC_15-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_15_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_15_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_16-Latitude}},\n                \"longitude\": {{GEO-LOC_16-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_16_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_16_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        },\n        {\n            \"natureOfEvent\": \"01\",\n            \"eventType\": \"GEOLOC\",\n            \"transportationMode\": \"03\",\n            \"transportMeans\": {\n                \"transportMeansStandardCode\": 11,\n                \"trackedObjects\": [\n                    {\n                        \"Id\": \"TRUCK_ID\",\n                        \"value\": \"Container123\"\n                    }\n                ]\n            },\n            \"location\": {\n                \"latitude\": {{GEO-LOC_17-Latitude}},\n                \"longitude\": {{GEO-LOC_17-Longitude}},\n                \"timeZone\": \"UTC-4\"\n            },\n            \"eventDateTimeUTC\": \"{{GEO_17_DATE_TIME}}\",\n            \"eventTimeZone\": \"UTC-4\",\n            \"previousStopId\": \"1\",\n            \"nextStopId\": \"2\",\n            \"estimatedArrival\": [\n                {\n                    \"stopId\": \"2\",\n                    \"locationId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\",\n                    \"estimatedDateTimeUTC\": \"{{EST_ARR_17_DATE_TIME}}\",\n                    \"estimationTimeZone\": \"UTC-4\"\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				},
+				"description": "# Geolocation Updates\n\nThere are a total of 17 geolocation updates that are covered in this collection, starting from Port Of Hamburg to an intermediate stop - Port of Lisbon and ending at the Port of New York.\n\nThe geolocation latitudes and longitudes are stored in variables named as \"GEO-LOC_01-Latitude\" and \"GEO-LOC_01-Longitude\" respectively. These locations can be changed by altering the values of the respective latitude and longitude variables.\n\nAlthough, on changing the location latitude and longitude will directly affect the path displayed in the **Map View** of the Freight Booking."
+			},
+			"response": []
+		},
+		{
+			"name": "Event : arrival of Vessel at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_VESSEL_POD_ExpectedDateTime\"));\r",
+							"//ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : unload_begin of Container (FULL) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var unloadBegin = new Date(pm.environment.get(\"UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime\"));\r",
+							"//UNLOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"UNLOAD_BEGIN_DATE_TIME\", unloadBegin.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", unloadBegin.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : unload_end of Container (FULL) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var unloadEnd = new Date(pm.environment.get(\"UNLOAD_END_CONTAINER_POD_ExpectedDateTime\"));\r",
+							"//UNLOAD_END_BusinessExpectedDateTime\r",
+							"unloadEnd.setMinutes(unloadEnd.getMinutes() - 15);\r",
+							"pm.variables.set(\"UNLOAD_END_DATE_TIME\", unloadEnd.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", unloadEnd.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"UNLOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{UNLOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : arrival of Truck (EMPTY) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"ARRIV_DEST_TRUCK_POD_ExpectedDateTime\"));\r",
+							"//ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"ARRIV_DEST\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : gatein_start of Truck (EMPTY) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"GATEIN_START_TRUCK_POD_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"GATEIN_START\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : gatein_end of Truck (EMPTY) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"GATEIN_END_TRUCK_POD_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"GATEIN_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : load_begin of Container (FULL) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadBeginTechnicalDate = new Date(pm.environment.get(\"LOAD_BEGIN_VESSEL_POD_ExpectedDateTime\"));\r",
+							"//LOAD_BEGIN_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"LOAD_BEGIN_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadBeginTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_BEGIN\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_BEGIN_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : load_end of Container (FULL) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var loadEndTechnicalDate = new Date(pm.environment.get(\"LOAD_END_VESSEL_POD_ExpectedDateTime\"));\r",
+							"//LOAD_END_VESSEL_POO_ExpectedDateTime\r",
+							"loadEndTechnicalDate.setMinutes(loadEndTechnicalDate.getMinutes() + 15)\r",
+							"pm.variables.set(\"LOAD_END_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", loadEndTechnicalDate.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"LOAD_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{LOAD_END_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : gateout_start of Truck(LOADED) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"GATEOUT_START_TRUCK_POD_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"GATEOUT_START\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : gateout_end of Truck(LOADED) at Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var arriveDest = new Date(pm.environment.get(\"GATEOUT_END_TRUCK_POD_ExpectedDateTime\")); \r",
+							"// ARRIV_DEST_BusinessExpectedDateTime\r",
+							"arriveDest.setMinutes(arriveDest.getMinutes() + 30);\r",
+							"pm.variables.set(\"ARRIV_DEST_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", arriveDest.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"GATEOUT_END\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{SOURCE_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{ARRIV_DEST_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event : departure of Truck(LOADED) from Port of Discharge",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var delivered = new Date(pm.environment.get(\"DEPARTURE_TRUCK_POD_ExpectedDateTime\"));\r",
+							"//DELIVERED_BusinessExpectedDateTime\r",
+							"pm.variables.set(\"DELIVERED_DATE_TIME\", delivered.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");\r",
+							"\r",
+							"pm.variables.set(\"CURRENT_DATE_TIME\", delivered.toJSON().replace(\".\", \":\").slice(0,19) + \"Z\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT_FOR_POSTING_EVENTS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shipper\": {\r\n        \"shipperLBNID\": \"{{SHIPPER_LBN_ID}}\"\r\n    },\r\n    \"carrier\": {\r\n        \"carrierLBNID\": \"{{CARRIER_LBN}}\"\r\n    },\r\n    \"networkPartner\": {\r\n        \"networkPartnerLBNID\": \"{{NetworkPartnerLBNID}}\"\r\n    },\r\n    \"technicalId\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:FreightOrder:{{TransportationOrderID}}:FC\",\r\n    \"orderId\": \"{{TransportationOrderID}}\",\r\n    \"creationDateTimeUTC\": \"{{CURRENT_DATE_TIME}}\",\r\n    \"events\": [\r\n        {\r\n            \"natureOfEvent\": \"01\",\r\n            \"eventType\": \"DEPARTURE\",\r\n            \"transportationMode\": \"03\",\r\n            \"transportMeans\": {\r\n                \"transportMeansStandardCode\": 11,\r\n                \"trackedObjects\": [\r\n                    {\r\n                        \"Id\": \"TRUCK_ID\",\r\n                        \"value\": \"Container123\"\r\n                    }\r\n                ]\r\n            },\r\n            \"stopId\": \"2\",\r\n            \"ordinalNo\": 1,\r\n            \"location\": {\r\n                \"Id\": \"xri://sap.com/id:LBN#{{SHIPPER_LBN_ID}}:QM7_910:Location:LogisticLocation:{{DEST_LOC_EXT_ID}}\"\r\n            },\r\n            \"eventDateTimeUTC\": \"{{DELIVERED_DATE_TIME}}\",\r\n            \"eventTimeZone\": \"UTC-4\",\r\n            \"previousStopId\": \"1\",\r\n            \"nextStopId\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_EVENT_BASE_URL}}/http/http/v1/tracking/events",
+					"host": [
+						"{{CPI_POST_EVENT_BASE_URL}}"
+					],
+					"path": [
+						"http",
+						"http",
+						"v1",
+						"tracking",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete FO",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "lbnAuthUser",
+						"value": "{{lbnAuthUser}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n    <SOAP-ENV:Body>\r\n        <n0:TransportationOrderGenericTrackedProcessRequest xmlns:n0=\"http://sap.com/xi/SAPGlobal20/Global\" xmlns:prx=\"urn:sap.com:proxy:QM7:/1SAI/TASC2615E1FAFECE44D0667:757\">\r\n            <MessageHeader>\r\n                <CreationDateTime>{{CreationDateTime}}</CreationDateTime>\r\n                <SenderBusinessSystemID>QM7_910</SenderBusinessSystemID>\r\n                <SenderParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </SenderParty>\r\n                <RecipientParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                </RecipientParty>\r\n            </MessageHeader>\r\n            <TransportationOrderGenericTrackedProcess actionCode=\"05\" changeOrdinalNumberValue=\"1\">\r\n                <CategoryCode>BO</CategoryCode>\r\n                <ShippingTypeCode>3</ShippingTypeCode>\r\n                <MovementTypeCode>1</MovementTypeCode>\r\n                <CargoGrossWeightTotalQuantity unitCode=\"KGM\">8140.0</CargoGrossWeightTotalQuantity>\r\n                <CargoGrossVolumeTotalQuantity unitCode=\"MTQ\">1.5</CargoGrossVolumeTotalQuantity>\r\n                <PiecesTotalQuantity unitCode=\"EA\">2.0</PiecesTotalQuantity>\r\n                <TotalDistanceMeasure unitCode=\"KMT\">6147.919146</TotalDistanceMeasure>\r\n                <TotalNetDuration>PT204H55M50S</TotalNetDuration>\r\n                <StopsTotalNumberValue>2</StopsTotalNumberValue>\r\n                <LoadingLocationsTotalNumberValue>1</LoadingLocationsTotalNumberValue>\r\n                <UnloadingLocationsTotalNumberValue>1</UnloadingLocationsTotalNumberValue>\r\n                <ShipperParty />\r\n                <OrderingParty>\r\n                    <InternalID>LBNE2EPO1</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{SHIPPER_LBN_ID}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68723</StreetPostalCode>\r\n                            <CityName>Plankstadt/Schwetzingen</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Brauereistraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Telephone>\r\n                                <Number>\r\n                                    <AreaID>06202</AreaID>\r\n                                    <SubscriberID>1234</SubscriberID>\r\n                                    <CountryCode>DE</CountryCode>\r\n                                    <CountryDiallingCode>49</CountryDiallingCode>\r\n                                </Number>\r\n                                <SMSEnabledIndicator>false</SMSEnabledIndicator>\r\n                                <NumberDefaultIndicator>true</NumberDefaultIndicator>\r\n                                <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>\r\n                            </Telephone>\r\n                            <Email>\r\n                                <URI>myemail@test.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </OrderingParty>\r\n                <PreferredCarrierParty>\r\n                    <InternalID>LBNE2EC01</InternalID>\r\n                    <StandardID schemeAgencyID=\"310\" schemeID=\"LBN\">{{CARRIER_LBN}}</StandardID>\r\n                    <Address>\r\n                        <OrganisationFormattedName>LBN-E2E-PO-1</OrganisationFormattedName>\r\n                        <OrganisationFormattedName>LBN E2E Test Purchase Org. 1</OrganisationFormattedName>\r\n                        <PhysicalAddress>\r\n                            <CountryCode>DE</CountryCode>\r\n                            <StreetPostalCode>68169</StreetPostalCode>\r\n                            <CityName>Mannheim</CityName>\r\n                            <POBoxIndicator>false</POBoxIndicator>\r\n                            <StreetName>Industriestraße</StreetName>\r\n                            <HouseID>1</HouseID>\r\n                        </PhysicalAddress>\r\n                        <Communication>\r\n                            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>\r\n                            <Email>\r\n                                <URI>salim.shaikh@sap.com</URI>\r\n                                <URIDefaultIndicator>true</URIDefaultIndicator>\r\n                                <URIUsageDenialIndicator>false</URIUsageDenialIndicator>\r\n                            </Email>\r\n                        </Communication>\r\n                    </Address>\r\n                </PreferredCarrierParty>\r\n                <TransportationStage>\r\n                    <ID>10</ID>\r\n                    <OrdinalNumberValue>1</OrdinalNumberValue>\r\n                    <TransportModeCode listID=\"11719\">02</TransportModeCode>\r\n                    <LoadingLocationAddressTimeZoneCode>UTC-4</LoadingLocationAddressTimeZoneCode>\r\n                    <UnloadingLocationAddressTimeZoneCode>UTC-4</UnloadingLocationAddressTimeZoneCode>\r\n                    <ExpectedDepartureDateTime>{{ExpectedDepartureDateTime}}</ExpectedDepartureDateTime>\r\n                    <ExpectedDepartureDateTimeDSTRuleApplyIndicator>true</ExpectedDepartureDateTimeDSTRuleApplyIndicator>\r\n                    <ExpectedArrivalDateTime>{{ExpectedArrivalDateTime}}</ExpectedArrivalDateTime>\r\n                    <ExpectedArrivalDateTimeDSTRuleApplyIndicator>true</ExpectedArrivalDateTimeDSTRuleApplyIndicator>\r\n                    <MainLoadingLocation>\r\n                        <InternalID>{{SOURCE_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>Port of Hamburg</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>DE</CountryCode>\r\n                                <RegionCode>HH</RegionCode>\r\n                                <StreetPostalCode>21107</StreetPostalCode>\r\n                                <CityName>Hamburg</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>1 Rethedamm</StreetName>\r\n                                <HouseID>8</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">53.502831</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">9.968507</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainLoadingLocation>\r\n                    <MainLoadingStopID>10</MainLoadingStopID>\r\n                    <MainUnloadingLocation>\r\n                        <InternalID>{{DEST_LOC_EXT_ID}}</InternalID>\r\n                        <Address>\r\n                            <OrganisationFormattedName>Port of New York</OrganisationFormattedName>\r\n                            <PhysicalAddress>\r\n                                <CountryCode>US</CountryCode>\r\n                                <RegionCode>NY</RegionCode>\r\n                                <StreetPostalCode>10305</StreetPostalCode>\r\n                                <CityName>New York</CityName>\r\n                                <POBoxIndicator>false</POBoxIndicator>\r\n                                <StreetName>183 Edgewater Street</StreetName>\r\n                                <HouseID>8</HouseID>\r\n                            </PhysicalAddress>\r\n                            <GeoCoordinates>\r\n                                <LatitudeMeasure unitCode=\"DD\">40.6904632</LatitudeMeasure>\r\n                                <LongitudeMeasure unitCode=\"DD\">-74.129194</LongitudeMeasure>\r\n                            </GeoCoordinates>\r\n                        </Address>\r\n                    </MainUnloadingLocation>\r\n                    <MainUnloadingStopID>20</MainUnloadingStopID>\r\n                </TransportationStage>\r\n                <DeliveryTerms>\r\n                    <Incoterms>\r\n                        <ClassificationCode>FOB</ClassificationCode>\r\n                    </Incoterms>\r\n                </DeliveryTerms>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_BEGIN_VESSEL_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>LOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{LOAD_END_VESSEL_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DEPARTURE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>10</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DEPARTURE_VESSEL_POO_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_BEGIN</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_BEGIN_CONTAINER_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>UNLOAD_END</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{UNLOAD_END_CONTAINER_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <TransportationEvent>\r\n                    <EventTypeCode>DEPARTURE</EventTypeCode>\r\n                    <Stop>\r\n                        <ID>20</ID>\r\n                    </Stop>\r\n                    <EarliestBusinessExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</EarliestBusinessExpectedDateTime>\r\n                    <BusinessExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</BusinessExpectedDateTime>\r\n                    <LatestBusinessExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</LatestBusinessExpectedDateTime>\r\n                    <EarliestTechnicalExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</EarliestTechnicalExpectedDateTime>\r\n                    <TechnicalExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</TechnicalExpectedDateTime>\r\n                    <LatestTechnicalExpectedDateTime>{{DEPARTURE_TRUCK_POD_ExpectedDateTime}}</LatestTechnicalExpectedDateTime>\r\n                </TransportationEvent>\r\n                <ObjectReference>\r\n                    <TransportationOrderID>{{TransportationOrderID}}</TransportationOrderID>\r\n                </ObjectReference>\r\n            </TransportationOrderGenericTrackedProcess>\r\n        </n0:TransportationOrderGenericTrackedProcessRequest>\r\n    </SOAP-ENV:Body>\r\n</SOAP-ENV:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{CPI_POST_FO_BASE_URL}}/cxf/lbn/b2b/soap/v1",
+					"host": [
+						"{{CPI_POST_FO_BASE_URL}}"
+					],
+					"path": [
+						"cxf",
+						"lbn",
+						"b2b",
+						"soap",
+						"v1"
+					]
+				},
+				"description": "#### Changing Carrier or Shipper\n---\nCarrier and shipper can be changed from environment variables. For carrier we have `CARRIER_LBN` variable and for shipper we have `SHIPPER_LBN_ID` variable.\n\n#### Changing Source and Destination locations\n---\n**Source Location:** In the XML payload we have a property called `<MainLoadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n**Destination Location:** In the XML payload we have a property called `<MainUnloadingLocation>` which contains the details of the location.\n- `<InternalID>`: value comes from the variable `SOURCE_LOC_EXT_ID` and `DEST_LOC_EXT_ID` maintained in environment variable. Make sure the environment variable's value get changed because it is reused while posting events.\n- `<Address>`: this field needs to be filled manually while changing locations.\n\n***NOTE***: If location is not present in location master app it will be created when the FO will be posted.\n\n#### Overriding date values\n---\nAll date and time used in this postman collection are generated dynamically when we post a new freight order. Overriding those values is a little tricky but possible.\n\ne.g. if we want to change the `LOAD_BEGIN`'s `BusinessExpectedDateTime`, instead of passing the variable `LOAD_BEGIN_BusinessExpectedDateTime`\nwe can directly pass the date/time (in this format `2021-05-22T12:20:00.000Z`). After that we must change the value of `LOAD_BEGIN_BusinessExpectedDateTime` in postman's environment variable with the actual value that we have overridden with.\n\nThe above case is only applicable while overriding values in Create freight order payload. For events we can directly replace the variables with timestamp values."
+			},
+			"response": []
+		}
+	]
+}

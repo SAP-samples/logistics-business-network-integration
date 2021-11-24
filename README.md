@@ -4,7 +4,7 @@
 
 The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP LBN APIs. Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist. The description is valid for both Freight Collaboration Option (FC), as well as Global Track and Trace Option (GTT).
 
-Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively - [ask a question](https://github.com/SAP-samples/logistics-business-network-integration/issues) and please also check the [FAQ section](https://github.com/SAP-samples/logistics-business-network-integration/wiki/FAQ).
+Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively - [**ask a question**](https://github.com/SAP-samples/logistics-business-network-integration/issues) and please also check the [FAQ section](https://github.com/SAP-samples/logistics-business-network-integration/wiki/FAQ).
 You might also want to take a look at the below [glossary](https://github.com/SAP-samples/logistics-business-network-integration#glossary).
 
 ## 0.) Get an overview of SAP LBN
@@ -12,27 +12,27 @@ You might also want to take a look at the below [glossary](https://github.com/SA
 ![](Upload/0.png)
 
 ![](Upload/whatisLBN.png)
-[Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) to view a video introduction session for the LBN Network - an introduction for carrier networks! [Click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5) to view a video introduction session for the LBN Network - for API enabled carriers!
+[**Click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) to view a video introduction session for the LBN Network - an introduction for carrier networks! [**Click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5) to view a video introduction session for the LBN Network - for API enabled carriers!
 
-Feel free to click through [these slides](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks. [These slides](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
+Feel free to click through [**these slides**](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks. [**These slides**](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.
 
 ## 1.) Get to know SAP LBN and APIs
 
 ![](Upload/Picture1.png)
 
 All LBN APIs are documented in SAP API hub. 
-To view the relevent Freight Collaboration Option (FC) APIs click [here](https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
-To view the relevent Global Track and Trace Option (GTT) APIs click [here](https://api.sap.com/package/LbnGlobalTrackAndTrace?section=Artifacts) and filter based on type 'Rest'.
-This video will provide you an overview of the APIs used for the various Freight Collaboration Option scenarios [click here](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
+To view the relevent Freight Collaboration Option (FC) APIs **click [here]**(https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
+To view the relevent Global Track and Trace Option (GTT) APIs **click [here]**(https://api.sap.com/package/LbnGlobalTrackAndTrace?section=Artifacts) and filter based on type 'Rest'.
+This video will provide you an overview of the APIs used for the various Freight Collaboration Option scenarios [**click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_56hc08n2).
 
 Additionally, to understand the details of the individual scenarios click on the listed description below.
-You can view the slides used in these presentations by clicking on this [link](Upload/APIOverviewSlides.pdf).
+You can view the slides used in these presentations by clicking on this [**link**](Upload/APIOverviewSlides.pdf).
   - [Tendering API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_arll0fdg)
   - [Subcontracting API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_0nq8qf49)
   - [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751)
   - [Invoicing API](https://www.kaltura.com/p/1921661/sp/192166100/embedIframeJs/uiconf_id/37285991/partner_id/1921661?iframeembed=true&playerId=kaltura_player&entry_id=1_svh81jiy)
  
-For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [Tracking API](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
+For Global Track and Trace Option you can refer to the same Tracking API description as for Freight Collaboration Option above, as they are the same: [**Tracking API**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_z9pmf751).
 
 The administration guide for carriers can be found [here](https://help.sap.com/doc/3b6fba06913f47e29cff45d3e4f1f1cd/LBN/en-US/loiob076fa7d5070490582c68d261c20d5e8_EN.pdf) - it contains the following topics:
 - Onboarding

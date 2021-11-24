@@ -1,6 +1,6 @@
   
 1. In order to generate custom payloads for testing shipper messages in LBN, we recommend creating a new workspace in your postman and importing the postman collection and environments provided in this repo.
-<pic>
+![](Upload/PostmanCollectionforTestService/images/0.png)
 2. Import the postman collections and all the environments and ensure that you’ve selected the correct pair of environment and request based on the operation name
 <pic>
   

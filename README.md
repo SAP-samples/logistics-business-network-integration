@@ -91,7 +91,7 @@ To perform the remaining configurations of your B2B test tenant please follow th
 
 ### 2.2) Request test technical user
 
-For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
 ## 3.) Integrate with SAP LBN APIs
 
@@ -168,7 +168,7 @@ To perform the remaining configurations of your productive tenant please follow 
 
 ### 5.2) Request productive technical user
 
-For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SCM-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
 
 ### 5.3) Configure APIs and endpoints
 
@@ -178,7 +178,7 @@ Please perform the same activities as in chapter "3.) Integrate with SAP LBN API
 
 ### 5.4) Perform smoke test
 
-Raise an incident in SCM-LBN-INT [SAP support portal](https://support.sap.com/) for a smoke test. We will facilitate an example order to your system. This activity will be done manually. 
+Raise an incident in SBN-LBN-INT [SAP support portal](https://support.sap.com/) for a smoke test. We will facilitate an example order to your system. This activity will be done manually. 
 
 ## 6.) Become an SAP PartnerEdge Partner
 

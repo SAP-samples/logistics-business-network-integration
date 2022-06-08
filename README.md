@@ -91,7 +91,12 @@ To perform the remaining configurations of your B2B test tenant please follow th
 
 ### 2.2) Request test technical user
 
-For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident . The list is mentioned below
+* Provider API for Freight Booking
+* Provider API for Freight Subcontracting
+* Provider API for Freight Tendering
+* Provider API for Invoicing
+* Provider API for Order Events
 
 ## 3.) Integrate with SAP LBN APIs
 
@@ -168,7 +173,12 @@ To perform the remaining configurations of your productive tenant please follow 
 
 ### 5.2) Request productive technical user
 
-For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile.
+For all the LBN provider APIs (inbound to LBN), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the LBN ID created for your account. To know the LBN ID, login to SAP LBN  and open the business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident . The list is mentioned below
+* Provider API for Freight Booking
+* Provider API for Freight Subcontracting
+* Provider API for Freight Tendering
+* Provider API for Invoicing
+* Provider API for Order Events
 
 ### 5.3) Configure APIs and endpoints
 

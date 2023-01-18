@@ -13,7 +13,6 @@ You might also want to take a look at the below [glossary](https://github.com/SA
 
 ![](Upload/0.png)
 
-![](Upload/whatisLBN.png)
 [**Click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) to view a video introduction session for SAP Business Network for Logistics - an introduction for carrier networks! [**Click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5) to view a video introduction session for SAP Business Network for Logistics - for API enabled carriers!
 
 Feel free to click through [**these slides**](Upload/SAP_LBN_FC_FOR_CARRIER_NETWORKS.pdf) to get further information on the carrier networks. [**These slides**](Upload/SAP_LBN_FC_FOR_CARRIERS.pdf) will show you more information about API enabled carriers.

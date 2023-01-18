@@ -108,7 +108,7 @@ You may refere to this [video](https://www.kaltura.com/p/1921661/sp/192166100/em
 
 The OAuth Id and secret that you requested earlier, will be needed by you to call our endpoint for all the provider APIs.
 
-This is the [LBN endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1 .
+This is the [SAP Business Network for Logistics endpoint](https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1h) that you need to call: https://l20398-iflmap.hcisbp.eu1.hana.ondemand.com/http/v1 .
 
 ## 4.) Testing 
 

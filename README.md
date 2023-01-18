@@ -1,6 +1,6 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/logistics-business-network-integration)](https://api.reuse.software/info/github.com/SAP-samples/logistics-business-network-integration)
 
-# Step-by-Step Guide: How to Integrate with SAP Logistics Business Network APIs
+# Step-by-Step Guide: How to Integrate with SAP Business Network for Logistics
 
 ![](Upload/1to6steps.png)
 

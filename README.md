@@ -2,7 +2,7 @@
 
 # Step-by-Step Guide: How to Integrate with SAP Business Network for Logistics
 
-![](Upload/1to6steps.png)
+![](Upload/StepByStepGuide.png)
 
 The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP Business Network for Logistics APIs. Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist. The description is valid for both, SAP Business Network Freight Collaboration (FC), as well as SAP Business Network Global Track and Trace (GTT).
 

@@ -158,7 +158,7 @@ License 8007133 – Free of charge Productive tenant for connectivity and transa
 ![](Upload/Screenshotproductive3.png)
 #### C. Requesting the productive tenant  
 
-* If a shipper had not actively invited you, please send a request to SAP Business Network for Logistics enablement team via email: sap.dsc.network.enablement@sap.com.Please provide below information in the mail
+* If a shipper had not actively invited you, please send a request to SAP Business Network for Logistics enablement team via email: sap.dsc.network.enablement@sap.com. Please provide below information in the mail
     *  Company Name
     *  Email address of contact person 
     *  Address

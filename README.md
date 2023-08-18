@@ -83,7 +83,7 @@ License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivit
 
 #### C. Requesting the B2B test tenant 
 
-Please request your B2B test tenant via following URL: https://store.sap.com/dcp/en/product/display-9999946401_live_v1/SAP%20Logistics%20Business%20Network%20-%20B2B%20test%20tenant
+Please request your B2B test tenant via following URL: http://store.sap.com/dcp/en/configure/vc/product/entityKey/000000000008900039?LIC_EDITION=TESTTENANT&LIC_QUANTITY_ROOT=1&LIC_START_DATE=TODAY&LIC_DURATION_SEL=12&LIC_RENEWAL_TYPE=AUTO&LIC_READONLY_ATTRIBUTES=LIC_EDITION,LIC_RENEWAL_TYPE?reset=true
 
 <!-- Original Link :https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant . -->
 

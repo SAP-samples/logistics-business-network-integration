@@ -83,7 +83,7 @@ License Nr 8007828 – Free of Charge *Test tenant to develop & test connectivit
 
 #### C. Requesting the B2B test tenant 
 
-Please request your B2B test tenant via following URL: http://store.sap.com/dcp/en/configure/vc/product/entityKey/000000000008900039?LIC_EDITION=TESTTENANT&LIC_QUANTITY_ROOT=1&LIC_START_DATE=TODAY&LIC_DURATION_SEL=12&LIC_RENEWAL_TYPE=AUTO&LIC_READONLY_ATTRIBUTES=LIC_EDITION,LIC_RENEWAL_TYPE?reset=true
+Please request your B2B test tenant via following URL: https://store.sap.com/dcp/en/configure/vc/product/entityKey/000000000008900523?LIC_READONLY_ATTRIBUTES=LIC_RENEWAL_TYPE,LIC_EDITION&LIC_HIDE_ATTRIBUTES=LIC_EU_ACCESS&LIC_START_DATE=TODAY&LIC_EDITION=TESTTENANT&LIC_DURATION_SEL=12&LIC_RENEWAL_TYPE=AUTO&reset=true
 
 <!-- Original Link :https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant . -->
 
@@ -94,7 +94,7 @@ To perform the remaining configurations of your B2B test tenant please follow th
 
 ### 2.2) Request test technical user
 
-For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident . The list is mentioned below
+For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account and the email address you want to recieve your client ID and secret at. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the manage business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident . The list is mentioned below
 * Provider API for Freight Booking
 * Provider API for Freight Subcontracting
 * Provider API for Freight Tendering

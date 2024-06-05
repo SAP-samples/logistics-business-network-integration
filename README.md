@@ -87,6 +87,7 @@ Please request your B2B test tenant via following URL: https://store.sap.com/dcp
 
 <!-- Original Link :https://www.sapstore.com/solutions/46401/SAP-Logistics-Business-Network%2C-B2B-test-tenant . -->
 
+> By default, B2B test tenants use data centers in Europe. If you want your tenant to use a data center in the U.S., enter US20 in the PO-Number field on the Review Order Details page.
 
 #### D. Configuring the B2B test tenant
 

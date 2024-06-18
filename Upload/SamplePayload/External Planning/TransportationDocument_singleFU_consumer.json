@@ -1,0 +1,458 @@
+{
+  "technicalId": "xri://sap.com/id:LBN#10000042:QW9_170:FreightUnit:4100068160",
+  "senderParty": {
+    "lbnId": "10000042",
+    "standardIds": [
+      {
+        "schemeAgencyId": "310",
+        "schemeId": "LBN",
+        "value": "10000042"
+      },
+      {
+        "schemeAgencyId": "TM",
+        "value": "LBNE2EPO1"
+      }
+    ]
+  },
+  "originatorId": "QW9_170",
+  "recipientParty": {
+    "lbnId": "10000043",
+    "standardIds": [
+      {
+        "schemeAgencyId": "140",
+        "value": "EORI_NUM"
+      },
+      {
+        "schemeAgencyId": "182",
+        "value": "SEAU"
+      },
+      {
+        "schemeAgencyId": "310",
+        "schemeId": "LBN",
+        "value": "10000043"
+      },
+      {
+        "schemeAgencyId": "TM",
+        "value": "LBNE2EC01"
+      }
+    ]
+  },
+  "documentRecipientParty": {
+    "lbnId": "10000043",
+    "standardIds": [
+      {
+        "schemeAgencyId": "140",
+        "value": "EORI_NUM"
+      },
+      {
+        "schemeAgencyId": "182",
+        "value": "SEAU"
+      },
+      {
+        "schemeAgencyId": "310",
+        "schemeId": "LBN",
+        "value": "10000043"
+      },
+      {
+        "schemeAgencyId": "TM",
+        "value": "LBNE2EC01"
+      }
+    ]
+  },
+  "transportationDocument": {
+    "orderId": "4100068160",
+    "categoryCode": "FU",
+    "dangerousGoodsIndicator": "false",
+    "totalDistanceMeasureUnit": "KMT",
+    "totalDistanceMeasure": 197.522732,
+    "shipperParty": {
+      "lbnId": "10000042",
+      "address": {
+        "name": "BP Plant Rot",
+        "street": "SAP-Allee",
+        "house": "29 ",
+        "city": "St.Leon-Rot ",
+        "country": "DE",
+        "postalCode": "68789"
+      },
+      "standardIds": [
+        {
+          "schemeAgencyId": "310",
+          "schemeId": "LBN",
+          "value": "10000042"
+        },
+        {
+          "schemeAgencyId": "TM",
+          "value": "T42_BP_W43"
+        }
+      ]
+    },
+    "consigneeParty": {
+      "address": {
+        "name": "Astrazeneca UK",
+        "street": "Tesdorpfstraße",
+        "house": "8",
+        "city": "Hamburg ",
+        "country": "DE",
+        "postalCode": "20148"
+      },
+      "standardIds": [
+        {
+          "schemeAgencyId": "TM",
+          "value": "T42_BP_HAM"
+        }
+      ]
+    },
+    "orderingParty": {
+      "lbnId": "10000042",
+      "address": {
+        "name": "LBN-E2E-PO-1",
+        "street": "Building 10",
+        "house": "5TH",
+        "city": "Bangalore",
+        "country": "IN",
+        "postalCode": "560066",
+        "phoneNumber": "+49 06202 1234",
+        "mobileNumber": "919901323345",
+        "emailAddress": "ravi.shankar02@sap.com"
+      },
+      "standardIds": [
+        {
+          "schemeAgencyId": "310",
+          "schemeId": "LBN",
+          "value": "10000042"
+        },
+        {
+          "schemeAgencyId": "TM",
+          "value": "LBNE2EPO1"
+        }
+      ]
+    },
+    "carrierParty": {
+      "lbnId": "10000043",
+      "address": {
+        "name": "LBN-E2E-CARR-01",
+        "street": "Industriestrabe",
+        "house": "1",
+        "city": "Mannheim",
+        "country": "DE",
+        "postalCode": "68169",
+        "emailAddress": "ravi.shankar02@sap.com"
+      },
+      "standardIds": [
+        {
+          "schemeAgencyId": "140",
+          "value": "EORI_NUM"
+        },
+        {
+          "schemeAgencyId": "182",
+          "value": "SEAU"
+        },
+        {
+          "schemeAgencyId": "310",
+          "schemeId": "LBN",
+          "value": "10000043"
+        },
+        {
+          "schemeAgencyId": "TM",
+          "value": "LBNE2EC01"
+        }
+      ]
+    },
+    "additionalParty": [
+      {
+        "partyDetails": {
+          "address": {
+            "name": "Astrazeneca UK",
+            "street": "Tesdorpfstraße",
+            "house": "8",
+            "city": "Hamburg ",
+            "country": "DE",
+            "postalCode": "20148"
+          },
+          "standardIds": [
+            {
+              "schemeAgencyId": "TM",
+              "value": "T42_BP_HAM"
+            }
+          ]
+        },
+        "roleCode": "1"
+      },
+      {
+        "partyDetails": {
+          "address": {
+            "name": "Astrazeneca UK",
+            "street": "Tesdorpfstraße",
+            "house": "8",
+            "city": "Hamburg ",
+            "country": "DE",
+            "postalCode": "20148"
+          },
+          "standardIds": [
+            {
+              "schemeAgencyId": "TM",
+              "value": "T42_BP_HAM"
+            }
+          ]
+        },
+        "roleCode": "200"
+      },
+      {
+        "partyDetails": {
+          "address": {
+            "name": "Astrazeneca UK",
+            "street": "Tesdorpfstraße",
+            "house": "8",
+            "city": "Hamburg ",
+            "country": "DE",
+            "postalCode": "20148"
+          },
+          "standardIds": [
+            {
+              "schemeAgencyId": "TM",
+              "value": "T42_BP_HAM"
+            }
+          ]
+        },
+        "roleCode": "8"
+      },
+      {
+        "partyDetails": {
+          "address": {
+            "name": "Astrazeneca UK",
+            "street": "Tesdorpfstraße",
+            "house": "8",
+            "city": "Hamburg ",
+            "country": "DE",
+            "postalCode": "20148"
+          },
+          "standardIds": [
+            {
+              "schemeAgencyId": "TM",
+              "value": "T42_BP_HAM"
+            }
+          ]
+        },
+        "roleCode": "10"
+      }
+    ],
+    "transportationStages": [
+      {
+        "stageId": "10",
+        "ordinalNumberValue": 1,
+        "distanceMeasureUnitCode": "KMT",
+        "distanceMeasure": 197.522732,
+        "expectedDepartureTimeZone": "UTC",
+        "requestedLoadingStartDateTime": "2024-06-11T22:00:00Z",
+        "requestedLoadingEndDateTime": "2024-06-11T22:00:00Z",
+        "acceptableLoadingStartDateTime": "2024-06-11T22:00:00Z",
+        "acceptableLoadingEndDateTime": "2024-06-12T21:59:59Z",
+        "requestedUnloadingStartDateTime": "2019-11-25T23:00:00Z",
+        "requestedUnloadingEndDateTime": "2019-11-25T23:00:00Z",
+        "acceptableUnloadingStartDateTime": "2019-11-25T23:00:00Z",
+        "acceptableUnloadingEndDateTime": "2019-11-26T22:59:59Z",
+        "expectedArrivalTimeZone": "UTC",
+        "mainLoadingStopId": "10",
+        "mainUnloadingStopId": "20",
+        "mainUnloadingUnlocodeLocationText": "AUSYD",
+        "mainUnloadingLocation": {
+          "id": "T42_BP_HAM",
+          "timeZone": "UTC",
+          "address": {
+            "name": "Astrazeneca UK",
+            "street": "Tesdorpfstraße",
+            "house": "8",
+            "city": "Hamburg ",
+            "country": "DE",
+            "postalCode": "20148"
+          }
+        },
+        "itemAssignment": [
+          {
+            "itemId": "10"
+          },
+          {
+            "itemId": "1000000"
+          }
+        ],
+        "mainLoadingLocation": {
+          "id": "SP_TM43",
+          "timeZone": "UTC",
+          "address": {
+            "name": "TM Shipping Point ROT",
+            "street": "SAP-Allee",
+            "house": "29",
+            "city": "St. Leon-Rot",
+            "country": "DE",
+            "postalCode": "68789"
+          }
+        },
+        "arrivalStopId": "20",
+        "departureStopId": "10",
+        "externalPlanningRelevanceIndicator": "false"
+      }
+    ],
+    "baseBusinessTransactionDocumentReference": {
+      "id": "4100068160",
+      "typeCode": "1122",
+      "versionId": "2"
+    },
+    "businessTransactionDocumentReferences": [
+      {
+        "businessTransactionDocumentReference": {
+          "id": "67490",
+          "typeCode": "114"
+        },
+        "issueDateTime": "2024-06-06"
+      }
+    ],
+    "items": [
+      {
+        "itemId": "1000000",
+        "categoryCode": "FUR",
+        "grossWeightTransportationQuantity": {
+          "value": 300,
+          "unit": "KGM"
+        },
+        "grossVolumeTransportationQuantity": {
+          "value": 0.00001,
+          "unit": "MTQ"
+        },
+        "baseItemBusinessTransactionDocumentReference": {
+          "id": "4100068160",
+          "itemId": "1000000",
+          "typeCode": "1122",
+          "versionId": "2"
+        },
+        "businessTransactionDocumentReference": [
+          {
+            "businessTransactionDocumentReference": {
+              "id": "67490",
+              "typeCode": "114"
+            }
+          },
+          {
+            "businessTransactionDocumentReference": {
+              "id": "xri://sap.com/id:LBN#10000042:QW9_170:FreightUnit:4100068160",
+              "typeCode": "LBN_REF",
+              "itemId": "1000000"
+            }
+          }
+        ]
+      },
+      {
+        "itemId": "10",
+        "categoryCode": "PRD",
+        "description": "Small part, fast-moving 01",
+        "grossWeightTransportationQuantity": {
+          "value": 300,
+          "unit": "KGM"
+        },
+        "grossVolumeTransportationQuantity": {
+          "value": 0.00001,
+          "unit": "MTQ"
+        },
+        "netWeightTransportationQuantity": {
+          "value": 0.01,
+          "unit": "KGM"
+        },
+        "deliveryQuantity": {
+          "value": 10,
+          "unit": "EA"
+        },
+        "lengthMeasure": {
+          "value": 1,
+          "unit": "DMT"
+        },
+        "widthMeasure": {
+          "value": 1,
+          "unit": "DMT"
+        },
+        "heightMeasure": {
+          "value": 0.5,
+          "unit": "DMT"
+        },
+        "hierarchyRelationshipParentItemId": "1000000",
+        "shipperParty": {
+          "lbnId": "10000042",
+          "address": {
+            "name": "BP Plant Rot",
+            "street": "SAP-Allee",
+            "house": "29 ",
+            "city": "St.Leon-Rot ",
+            "country": "DE",
+            "postalCode": "68789"
+          },
+          "standardIds": [
+            {
+              "schemeAgencyId": "310",
+              "schemeId": "LBN",
+              "value": "10000042"
+            },
+            {
+              "schemeAgencyId": "TM",
+              "value": "T42_BP_W43"
+            }
+          ]
+        },
+        "consigneeParty": {
+          "address": {
+            "name": "Astrazeneca UK",
+            "street": "Tesdorpfstraße",
+            "house": "8",
+            "city": "Hamburg ",
+            "country": "DE",
+            "postalCode": "20148"
+          },
+          "standardIds": [
+            {
+              "schemeAgencyId": "TM",
+              "value": "T42_BP_HAM"
+            }
+          ]
+        },
+        "product": {
+          "id": "T42_PROD-S01"
+        },
+        "baseItemBusinessTransactionDocumentReference": {
+          "id": "4100068160",
+          "itemId": "10",
+          "typeCode": "1122",
+          "versionId": "2"
+        },
+        "businessTransactionDocumentReference": [
+          {
+            "businessTransactionDocumentReference": {
+              "id": "67490",
+              "typeCode": "114",
+              "itemId": "100001"
+            },
+            "issueDateTime": "2024-06-06"
+          },
+          {
+            "businessTransactionDocumentReference": {
+              "id": "xri://sap.com/id:LBN#10000042:QW9_170:FreightUnit:4100068160",
+              "typeCode": "LBN_REF",
+              "itemId": "10"
+            }
+          }
+        ]
+      }
+    ],
+    "deliveryInformation": {
+      "planningStatusCode": "1",
+      "goodsMovementStatusCode": "1",
+      "loadingDateTime": "2024-06-11T22:00:00Z",
+      "distributionStatusCode": "1",
+      "plannedGoodsMovementDateTime": "2024-06-12T22:00:00Z",
+      "deliveryDateTime": "2019-11-25T23:00:00Z"
+    },
+    "deliveryTerms": {
+      "incoTerms": {
+        "classificationCode": "EXW",
+        "transferLocationName": "PLANT"
+      }
+    }
+  }
+}

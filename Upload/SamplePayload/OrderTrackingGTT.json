@@ -1,0 +1,107 @@
+{
+	"shipper": {
+		"shipperLBNID": "10010001410"
+	},
+	"carrier": {
+		"carrierLBNID": "10010001721"
+	},
+	"orderingParty": {},
+	"consignee": {},
+	"creationDateTimeUTC": "2024-06-14T00:30:56.108Z",
+	"shipment": {
+		"orderId": "4217284784",
+		"piecesTotalQuantity": {},
+		"transportationMode": "01",
+		"transportMeans": {
+			"trackedObjects": [
+				{
+					"Id": "CONTAINER_ID",
+					"value": "CONTAIN123"
+				},
+				{
+					"Id": "CONTAINER_ID",
+					"value": "CONTAIN456"
+				}
+			]
+		},
+		"dangerousGoodsIndicator": false,
+		"incoterm": "CFR",
+		"cargoGrossWeightTotalQuantity": {},
+		"cargoGrossVolumeTotalQuantity": {},
+		"carrierReferenceDocument": [],
+		"shippingType": "3",
+		"documentReference": [
+			{
+				"type": "73",
+				"value": "3835877496"
+			},
+			{
+				"type": "114",
+				"value": "2963100827"
+			}
+		],
+		"stops": [
+			{
+				"stopId": "42172847840001",
+				"ordinalNo": 1,
+				"location": {
+					"Id": "xri://sap.com/id:LBN#10010001410:QM7_910:Location:ShippingPoint:SP_ZS96",
+					"address": {}
+				},
+				"plannedEvents": [
+					{
+						"eventType": "LOAD_BEGIN",
+						"plannedStartDateTimeUTC": "2024-05-10T08:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T08:22:40Z"
+					},
+					{
+						"eventType": "LOAD_END",
+						"plannedStartDateTimeUTC": "2024-05-10T08:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T08:22:40Z"
+					},
+					{
+						"eventType": "POPU",
+						"plannedStartDateTimeUTC": "2024-05-10T08:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T08:22:40Z"
+					},
+					{
+						"eventType": "DEPARTURE",
+						"plannedStartDateTimeUTC": "2024-05-10T08:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T08:22:40Z"
+					}
+				]
+			},
+			{
+				"stopId": "42172847840002",
+				"ordinalNo": 2,
+				"location": {
+					"Id": "xri://sap.com/id:LBN#10010001410:QM7_910:Location:BusinessPartner:ZLBN02",
+					"address": {}
+				},
+				"plannedEvents": [
+					{
+						"eventType": "ARRIV_DEST",
+						"plannedStartDateTimeUTC": "2024-05-10T16:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T16:22:40Z"
+					},
+					{
+						"eventType": "UNLOAD_BEGIN",
+						"plannedStartDateTimeUTC": "2024-05-10T16:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T16:22:40Z"
+					},
+					{
+						"eventType": "UNLOAD_END",
+						"plannedStartDateTimeUTC": "2024-05-10T16:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T16:22:40Z"
+					},
+					{
+						"eventType": "POD",
+						"plannedStartDateTimeUTC": "2024-05-10T16:02:40Z",
+						"plannedEndDateTimeUTC": "2024-05-10T16:22:40Z"
+					}
+				]
+			}
+		]
+	},
+	"technicalId": "xri://sap.com/id:LBN#10010001410:QM7_910:FT1_SHIPMENT:4217284784:GTT"
+}

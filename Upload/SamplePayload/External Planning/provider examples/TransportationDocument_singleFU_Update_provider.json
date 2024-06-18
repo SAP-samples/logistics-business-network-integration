@@ -1,0 +1,224 @@
+{
+    "externalDocumentId": "3631312",
+    "originatorId": "QW9_170",
+    "senderParty": {
+        "lbnId": "10000043",
+        "standardIds": []
+    },
+    "recipientParty": {
+        "lbnId": "10000042",
+        "standardIds": []
+    },
+    "documentRecipientParty": {
+        "lbnId": "10000042",
+        "standardIds": []
+    },
+    "transportationDocument": {
+        "categoryCode": "TO",
+        "documentTypeCode":"1000",
+        "dangerousGoodsIndicator": "false",
+        "totalDistanceMeasureUnit": "KMT",
+        "totalDistanceMeasure": 484.42692800000000,
+        "shipperParty": {
+            "lbnId": "10000042",
+            "address": {
+                "name": "BP Plant Walldorf",
+                "street": "Dietmar-Hopp-Allee",
+                "house": "16",
+                "city": "Walldorf ",
+                "postalCode": "69190"
+            },
+            "contactPerson": [],
+            "standardIds": [
+                {
+                    "schemeAgencyId": "TM",
+                    "value": "T42_BP_W42"
+                }
+            ]
+        },
+        "consigneeParty": {
+            "address": {
+                "name": "BP Hamburg",
+                "street": "Tesdorpfstraße",
+                "house": "8",
+                "city": "Hamburg ",
+                "postalCode": "20148"
+            },
+            "contactPerson": [],
+            "standardIds": [
+                {
+                    "schemeAgencyId": "TM",
+                    "value": "T42_BP_HAM"
+                }
+            ]
+        },
+        "orderingParty": {
+            "lbnId": "10000042",
+            "address": {
+                "name": "LBN-DEV001",
+                    "street": "Sonnengraben",
+                    "house": "10",
+                    "city": "Mannheim",
+                    "postalCode": "68159",
+                    "phoneNumber": "+49 621 12345610",
+                    "mobileNumber": "+49 123 456789",
+                    "faxNumber": "+49 621 12335",
+                    "emailAddress": "ship1@sweets.com"
+            },
+            "standardIds": [
+                    {
+                        "schemeAgencyId": "009",
+                        "value": "4062396000008"
+                    },
+                    {
+                        "schemeAgencyId": "TM",
+                        "value": "LBN_SHIPP1"
+                    }
+            ]
+        },
+        "carrierParty": {
+            "lbnId": "10000043",
+            "address": null,
+            "contactPerson": [],
+            "standardIds": [
+                {
+                    "schemeAgencyId": "TM",
+                    "value": "LBNE2EC01"
+                }
+            ]
+        },
+        "additionalParty": null,
+        "transportationStages": [
+            {
+                "stageId": "10",
+                "ordinalNumberValue": 1.0000000000,
+                "distanceMeasureUnitCode": "KMT",
+                "distanceMeasure": 484.42692800000000,
+                "expectedDepartureTimeZone": "UTC",
+                "requestedLoadingStartDateTime": "2023-05-29T04:00:00Z",
+                "requestedLoadingEndDateTime": "2023-05-29T22:00:00Z",
+                "acceptableLoadingStartDateTime": "2023-05-29T04:00:00Z",
+                "acceptableLoadingEndDateTime": "2023-05-30T21:59:59Z",
+                "requestedUnloadingStartDateTime": "2023-06-01T04:00:00Z",
+                "requestedUnloadingEndDateTime": "2023-06-01T23:00:00Z",
+                "acceptableUnloadingStartDateTime": "2023-06-01T04:00:00Z",
+                "acceptableUnloadingEndDateTime": "2023-06-01T22:59:59Z",
+                "expectedArrivalTimeZone": "UTC",
+                "mainLoadingStopId": "10",
+                "mainLoadingUnlocodeLocationText": "DEHAM",
+                "mainUnloadingStopId": "20",
+                "mainUnloadingUnlocodeLocationText": "AUSYD",
+                "detailedLoadingLocation": {},
+                "mainUnloadingLocation": {
+                    "id": "T42_BP_HAM",
+                    "timeZone": "UTC",
+                    "address": {
+                        "name": "BP Hamburg",
+                        "street": "Tesdorpfstraße",
+                        "house": "8",
+                        "city": "Hamburg ",
+                        "postalCode": "20148",
+                        "longitude": 9.99166666666666,
+                        "latitude": 53.56305555555555
+                    }
+                },
+                "detailedUnloadingLocation": {},
+                "itemAssignment": [
+                    {
+                        "itemId": "10"
+                    }
+
+                ],
+                "executingCarrierParty": null,
+                "billFromParty": null,
+                "billToParty": null,
+                "mainLoadingLocation": {
+                    "id": "SP_TM43",
+                    "timeZone": "UTC",
+                    "address": {
+                        "name": "TM Shipping Point WDF",
+                        "street": "Dietmar-Hopp-Allee",
+                        "house": "16",
+                        "city": "Walldorf",
+                        "postalCode": "69190",
+                        "longitude": 8.64166666666666,
+                        "latitude": 49.29333333333332
+                    }
+                },
+                "arrivalStopId": "20",
+                "departureStopId": "10",
+                "externalPlanningRelevanceIndicator": "false"
+            }
+        ],
+        "transportationEvents": [],
+        "transportationTerms": {
+			"transportModeCode": "01"
+		},
+        "businessTransactionDocumentReferences": [
+            {
+                "businessTransactionDocumentReference": {
+                    "id": "67490",
+                    "typeCode": "114"
+                }
+            }
+        ],
+        "textCollection": [],
+        "items": [
+            {
+                "itemId": "10",
+                "categoryCode": "PRD",
+                "grossWeightTransportationQuantity": {},
+                "grossVolumeTransportationQuantity": {},
+                "netWeightTransportationQuantity": {},
+                "piecesTransportationQuantity": {},
+                "cargoCapacityTransportationQuantity": {},
+                "shippersLoadAndCountTransportationQuantity": {},
+                "deliveryQuantity": {},
+                "tareWeightMeasure": {},
+                "lengthMeasure": {},
+                "widthMeasure": {},
+                "heightMeasure": {},
+                "acceptableTemperatureMeasureInterval": {},
+                "hierarchyRelationshipParentItemId": null,
+                "shipperParty": null,
+                "consigneeParty": null,
+                "carrierParty": null,
+                "orderingParty": null,
+                "additionalParty": null,
+                "transportationCommodityClassification": [],
+                "product": {},
+                "dangerousGoodsInformation": [],
+                "package": {},
+                "service": {},
+                "transportationUnitResource": {},
+                "vehicleResource": null,
+                "seal": [],
+                "baseItemBusinessTransactionDocumentReference": {
+                    "id": "4100068160",
+                    "itemId": "10",
+                    "typeCode": "1122",
+                    "versionId": "2"
+                },
+                "businessTransactionDocumentReference": [
+                    {
+                        "businessTransactionDocumentReference": {
+                            "id": "xri://sap.com/id:LBN#10000042:QW9_170:FreightUnit:4100068160",
+                            "typeCode": "LBN_REF",
+                            "itemId": "10"
+                        }
+                    }
+                ],
+                "buyerOriginBusinessTransactionDocumentReference": {},
+                "textCollection": []
+            }
+        ],
+        "deliveryInformation": {
+            "planningStatusCode": "1",
+           "goodsMovementStatusCode": "1",
+            "loadingDateTime": "2022-09-13T22:00:00Z",
+            "distributionStatusCode": "1",
+            "plannedGoodsMovementDateTime": "2022-09-14T22:00:00Z",
+            "deliveryDateTime": "2019-11-25T23:00:00Z"
+        }
+    }
+}

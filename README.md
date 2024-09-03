@@ -3,7 +3,7 @@
 
 
 
-![](Upload/StepByStepGuide.png)
+![](Upload/Resources/main.png)
 
 The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP Business Network for Logistics APIs. Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist. The description is valid for both, SAP Business Network Freight Collaboration (FC), as well as SAP Business Network Global Track and Trace (GTT).
 
@@ -12,7 +12,7 @@ You might also want to take a look at the below [glossary](https://github.com/SA
 
 ## 0.) Get an overview of SAP Business Network for Logistics
 
-![](Upload/0.png)
+![](Upload/Resources/0.png)
 
 [**Click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_kse4obrb) to view a video introduction session for SAP Business Network for Logistics - an introduction for carrier networks! [**Click here**](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_o1pafhm5) to view a video introduction session for SAP Business Network for Logistics - for API enabled carriers!
 
@@ -20,7 +20,7 @@ Feel free to click through [**these slides**](Upload/SAP_LBN_FC_FOR_CARRIER_NETW
 
 ## 1.) Get to know SAP Business Network for Logistics and APIs
 
-![](Upload/Picture1.png)
+![](Upload/Resources/1.png)
 
 All SAP Business Network for Logistics APIs are documented in SAP API hub. 
 To view the relevent SAP Business Network Freight Collaboration (FC) APIs **click [here]**(https://api.sap.com/package/LbnFreightCollaborationTenderingSubcontracting?section=Artifacts) and filter based on type 'Rest'.
@@ -44,7 +44,7 @@ The administration guide for carriers can be found [here](https://help.sap.com/d
 - Monitoring & Troubleshooting
 
 ## 2.) Request B2B test tenant and test technical user
-![](Upload/2.png)
+![](Upload/Resources/2.png)
 
 Before you can actually start connecting against SAP Business Network for Logistics, you need to request the two below items:
 - Request B2B test tenant
@@ -95,16 +95,30 @@ To perform the remaining configurations of your B2B test tenant please follow th
 
 ### 2.2) Request test technical user
 
-For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account and the email address you want to recieve your client ID and secret at. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the manage business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident . The list is mentioned below
-* Provider API for Freight Booking
-* Provider API for Freight Subcontracting
-* Provider API for Freight Tendering
-* Provider API for Invoicing
-* Provider API for Order Events
+>[!NOTE]
+> The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL.
+>
+> For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account and the email address you want to recieve your client ID and secret at. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the manage business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident. The list is mentioned below
+>* Provider API for Freight Booking
+>* Provider API for Freight Subcontracting
+>* Provider API for Freight Tendering
+>* Provider API for Invoicing
+>* Provider API for Order Events
+
+> [!IMPORTANT]
+>If you are a new carrier or a carrier who is currently building integration, you do not need to request for a technical user as described above, but rather can create it yourself by following the steps below:
+>1. Go to *System Connections* application. 
+>2. Click on *Connection Settings*. 
+>3. In the Inbound section, choose *Multi-Cloud* as the Integration Platform.
+>4. Choose the scenarios that you need access for.
+>5. Click *Save* (You will see a warning dialog, click *Yes* to proceed).
+>On Save, the dialog is closed and you can click on *Connection Settings* again and this time, it should show an option to see the Service Credentials.
+>You will see *Client ID, Client Secret* and *Authentication URL* that you can now use for calling BNL.
+
 
 ## 3.) Integrate with SAP Business Network for Logistics APIs
 
-![](Upload/3.png)
+![](Upload/Resources/3.png)
 
 You may use these [postman sample payloads](Upload/SamplePayload/) to build your mappings and endpoints.
 
@@ -117,7 +131,7 @@ This is the [SAP Business Network for Logistics endpoint](https://l20398-iflmap.
 
 ## 4.) Testing 
 
-![](Upload/4.png)
+![](Upload/Resources/4.png)
 
 To test, you can generate a test call from the system connection app. You may refer the document [here](https://help.sap.com/viewer/185742008f2c477ca789b93675b0ec6c/LBN/en-US/21f87b4b5d1547a5b7c185be5e764203.html) on how to generate a test payload.
 
@@ -131,7 +145,7 @@ Before your implementation can be released for usage, you are required to perfor
 
 ### 5.1) Request productive tenant
 
-![](Upload/5.png)
+![](Upload/Resources/5.png)
 
 As a prerequisit for connecting to / integrating with SAP Business Network for Logistics APIs, you are required to have tenants in LBN available which are specific to your company.
 
@@ -142,7 +156,7 @@ This section focuses on requesting the productive tenant. Section 2 guided you t
 ![](Upload/Screenshotproductive1.png)
 
 #### A. Tenant and License description
-License 8007133 – Free of charge Productive tenant for connectivity and transaction processing / data sharing with shippers 
+Free of charge Productive tenant for connectivity and transaction processing / data sharing with shippers 
 * Covers both SAP Business Network Freight Collaboration & Global Track and Trace
 * Enables business partner entry and discovery in the business partner directory 
 * Enables listing and representation in SAP Business Network for Logistics go-to-market materials
@@ -168,8 +182,10 @@ License 8007133 – Free of charge Productive tenant for connectivity and transa
     *  Address
     *  Phone Number
     *  SCAC  ( if available )
-* Please request your productive tenant using the purchase order number and the request URL you received via email.  
-* You may watch [this recording](https://sapvideoa35699dc5.hana.ondemand.com/?entry_id=1_87fynq6n) to have the required steps visually explained.
+
+> [!TIP]
+>* You can follow the steps as described in the [help guide](https://help.sap.com/docs/business-network-freight-collaboration/activate-account/getting-started-with-sap-business-network-for-logistics-via-lightweight-onboarding?locale=en-US).  
+>* The steps from the time you receive the invitation are described visually in [this guide](https://support.ariba.com/item/view/210040).
 
 #### D. Configuring Productive Tenant
 
@@ -177,12 +193,25 @@ To perform the remaining configurations of your productive tenant please follow 
 
 ### 5.2) Request productive technical user
 
-For all SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account. To know the SAP Business Network for Logistics ID, login to SAP Business Network for Logistics and open the business profile tile. Additionally, please mention the SAP Business Network for Logistics API endpoints you intend to connect in the incident . The list is mentioned below
-* Provider API for Freight Booking
-* Provider API for Freight Subcontracting
-* Provider API for Freight Tendering
-* Provider API for Invoicing
-* Provider API for Order Events
+>[!NOTE]
+> The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL.
+>
+>For all SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account. To know the SAP Business Network for Logistics ID, login to SAP Business Network for Logistics and open the business profile tile. Additionally, please mention the SAP Business Network for Logistics API endpoints you intend to connect in the incident . The list is mentioned below
+>* Provider API for Freight Booking
+>* Provider API for Freight Subcontracting
+>* Provider API for Freight Tendering
+>* Provider API for Invoicing
+>* Provider API for Order Events
+
+> [!IMPORTANT]
+>If you are a new carrier or a carrier who is currently building integration, you do not need to request for a technical user as described above, but rather can create it yourself by following the steps below:
+>1. Go to *System Connections* application. 
+>2. Click on *Connection Settings*. 
+>3. In the Inbound section, choose *Multi-Cloud* as the Integration Platform.
+>4. Choose the scenarios that you need access for.
+>5. Click *Save* (You will see a warning dialog, click *Yes* to proceed).
+>On Save, the dialog is closed and you can click on *Connection Settings* again and this time, it should show an option to see the Service Credentials.
+>You will see *Client ID, Client Secret* and *Authentication URL* that you can now use for calling BNL.
 
 ### 5.3) Configure APIs and endpoints
 
@@ -196,9 +225,9 @@ Raise an incident in SBN-LBN-INT [SAP support portal](https://support.sap.com/) 
 
 ## 6.) Become an SAP PartnerEdge Partner
 
-![](Upload/number6revised.png)
+![](Upload/Resources/6.png)
 
-As a network provider, with delivered connectivity to the SAP Business Network for Logistics, your next step is to become an SAP PartnerEdge member. SAP PartnerEdge provides network solution and content providers an official SAP Partner status to allow joint go-to-market and marketing with SAP. You will profit from inclusion in the global go-to-market assets and enablement activities for the SAP Business Network for Logistics. As a partner, you may issue SAP-supported press releases, participate in SAP events, and publish co-branded marketing materials for the joint solution and partnership. You will also have access to SAP partner management, for example to connect you with the relevant SAP stakeholders for opportunity and customer project alignment. Furthermore, with PartnerEdge membership, your solution will be included in the SAP APP Center for marketing and sales to SAP customers.   
+This is a bonus step for Network Partners. As a network provider, with delivered connectivity to the SAP Business Network for Logistics, your next step is to become an SAP PartnerEdge member. SAP PartnerEdge provides network solution and content providers an official SAP Partner status to allow joint go-to-market and marketing with SAP. You will profit from inclusion in the global go-to-market assets and enablement activities for the SAP Business Network for Logistics. As a partner, you may issue SAP-supported press releases, participate in SAP events, and publish co-branded marketing materials for the joint solution and partnership. You will also have access to SAP partner management, for example to connect you with the relevant SAP stakeholders for opportunity and customer project alignment. Furthermore, with PartnerEdge membership, your solution will be included in the SAP APP Center for marketing and sales to SAP customers.   
  
  ![](Upload/SAPPartnerEdge.png)
 

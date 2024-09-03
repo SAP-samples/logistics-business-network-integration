@@ -96,7 +96,8 @@ To perform the remaining configurations of your B2B test tenant please follow th
 ### 2.2) Request test technical user
 
 >[!NOTE]
-> The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL. 
+> The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL.
+>
 > For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account and the email address you want to recieve your client ID and secret at. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the manage business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident. The list is mentioned below
 >* Provider API for Freight Booking
 >* Provider API for Freight Subcontracting
@@ -192,6 +193,7 @@ To perform the remaining configurations of your productive tenant please follow 
 
 >[!NOTE]
 > The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL.
+>
 >For all SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account. To know the SAP Business Network for Logistics ID, login to SAP Business Network for Logistics and open the business profile tile. Additionally, please mention the SAP Business Network for Logistics API endpoints you intend to connect in the incident . The list is mentioned below
 >* Provider API for Freight Booking
 >* Provider API for Freight Subcontracting

@@ -93,24 +93,24 @@ Please request your B2B test tenant via following URL: https://store.sap.com/dcp
 
 To perform the remaining configurations of your B2B test tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example enabling business partner entry and discovery in the business partner directory.
 
-### 2.2) Request test technical user (only for old tenants)
-
-For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account and the email address you want to recieve your client ID and secret at. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the manage business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident . The list is mentioned below
-* Provider API for Freight Booking
-* Provider API for Freight Subcontracting
-* Provider API for Freight Tendering
-* Provider API for Invoicing
-* Provider API for Order Events
+### 2.2) Request test technical user
 
 >[!NOTE]
->The above steps are only relevant if you already are a carrier on BNL with a productive Intergation. If you are a new carrier or a carrier who is currently building integration, you do not need to request for a technical user, but rather can create it yourself by following the steps below:
+> The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL. 
+> For all the SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account and the email address you want to recieve your client ID and secret at. To know the SAP Business Network for Logistics ID, login to SAP LBN  and open the manage business profile tile. Additionally, please mention the LBN API endpoints you intend to connect in the incident. The list is mentioned below
+>* Provider API for Freight Booking
+>* Provider API for Freight Subcontracting
+>* Provider API for Freight Tendering
+>* Provider API for Invoicing
+>* Provider API for Order Events
 
+> [!IMPORTANT]
+>If you are a new carrier or a carrier who is currently building integration, you do not need to request for a technical user as described above, but rather can create it yourself by following the steps below:
 >1. Go to *System Connections* application. 
 >2. Click on *Connection Settings*. 
 >3. In the Inbound section, choose *Multi-Cloud* as the Integration Platform.
 >4. Choose the scenarios that you need access for.
 >5. Click *Save* (You will see a warning dialog, click *Yes* to proceed).
-
 >On Save, the dialog is closed and you can click on *Connection Settings* again and this time, it should show an option to see the Service Credentials.
 >You will see *Client ID, Client Secret* and *Authentication URL* that you can now use for calling BNL.
 
@@ -188,24 +188,24 @@ Free of charge Productive tenant for connectivity and transaction processing / d
 
 To perform the remaining configurations of your productive tenant please follow the content of the following [document](https://help.sap.com/viewer/b29693ac52074747b7010a02932fe47d/LBN/en-US). This contains important settings, like for example enabling business partner entry and discovery in the business partner directory.
 
-### 5.2) Request productive technical user (Only for old tenants)
-
-For all SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account. To know the SAP Business Network for Logistics ID, login to SAP Business Network for Logistics and open the business profile tile. Additionally, please mention the SAP Business Network for Logistics API endpoints you intend to connect in the incident . The list is mentioned below
-* Provider API for Freight Booking
-* Provider API for Freight Subcontracting
-* Provider API for Freight Tendering
-* Provider API for Invoicing
-* Provider API for Order Events
+### 5.2) Request productive technical user
 
 >[!NOTE]
->The above steps are only relevant if you already are a carrier on BNL with a productive Intergation. If you are a new carrier or a carrier who is currently building integration, you do not need to request for a technical user, but rather can create it yourself by following the steps below:
+> The below steps are only relevant for old carriers who use *Neo* as the Integration platform option for inbound communication into BNL.
+>For all SAP Business Network for Logistics provider APIs (inbound to SAP Business Network for Logistics), when you call our endpoint, you would need to  procure an OAuth 2.0 client ID and secret. This can be procured by reporting an incident. Use the application component SBN-LBN-INT in [SAP support portal](https://support.sap.com/). Please mention the SAP Business Network for Logistics ID created for your account. To know the SAP Business Network for Logistics ID, login to SAP Business Network for Logistics and open the business profile tile. Additionally, please mention the SAP Business Network for Logistics API endpoints you intend to connect in the incident . The list is mentioned below
+>* Provider API for Freight Booking
+>* Provider API for Freight Subcontracting
+>* Provider API for Freight Tendering
+>* Provider API for Invoicing
+>* Provider API for Order Events
 
+> [!IMPORTANT]
+>If you are a new carrier or a carrier who is currently building integration, you do not need to request for a technical user as described above, but rather can create it yourself by following the steps below:
 >1. Go to *System Connections* application. 
 >2. Click on *Connection Settings*. 
 >3. In the Inbound section, choose *Multi-Cloud* as the Integration Platform.
 >4. Choose the scenarios that you need access for.
 >5. Click *Save* (You will see a warning dialog, click *Yes* to proceed).
-
 >On Save, the dialog is closed and you can click on *Connection Settings* again and this time, it should show an option to see the Service Credentials.
 >You will see *Client ID, Client Secret* and *Authentication URL* that you can now use for calling BNL.
 

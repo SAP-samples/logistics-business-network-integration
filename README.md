@@ -182,8 +182,10 @@ Free of charge Productive tenant for connectivity and transaction processing / d
     *  Address
     *  Phone Number
     *  SCAC  ( if available )
-* You can follow the steps as described in the [help guide](https://help.sap.com/docs/business-network-freight-collaboration/activate-account/getting-started-with-sap-business-network-for-logistics-via-lightweight-onboarding?locale=en-US).  
-* The steps from the time you receive the invitation are described visually in [this guide](https://support.ariba.com/item/view/210040).
+
+> [!TIP]
+>* You can follow the steps as described in the [help guide](https://help.sap.com/docs/business-network-freight-collaboration/activate-account/getting-started-with-sap-business-network-for-logistics-via-lightweight-onboarding?locale=en-US).  
+>* The steps from the time you receive the invitation are described visually in [this guide](https://support.ariba.com/item/view/210040).
 
 #### D. Configuring Productive Tenant
 

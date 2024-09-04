@@ -153,15 +153,12 @@ For this you will have to request two tenants, one that will serve the developme
 
 This section focuses on requesting the productive tenant. Section 2 guided you through requesting your development/test tenant.
 
-![](Upload/Screenshotproductive1.png)
-
 #### A. Tenant and License description
 Free of charge Productive tenant for connectivity and transaction processing / data sharing with shippers 
 * Covers both SAP Business Network Freight Collaboration & Global Track and Trace
 * Enables business partner entry and discovery in the business partner directory 
 * Enables listing and representation in SAP Business Network for Logistics go-to-market materials
 
-![](Upload/Screenshotproductive2.png)
 #### B. License coverage details
 
 * SAP Business Network for Logistics membership as a carrier or network partner
@@ -173,10 +170,9 @@ Free of charge Productive tenant for connectivity and transaction processing / d
 * Related usage of SAP Cloud Identity and SAP Fiori
 * Standard SAP cloud support for SAP Business Network for Logistics and standard APIs
 
-![](Upload/Screenshotproductive3.png)
 #### C. Requesting the productive tenant  
 
-* If a shipper had not actively invited you, please send a request to SAP Business Network for Logistics enablement team via email: sap.dsc.network.enablement@sap.com. Please provide below information in the mail
+* Usualy the process is initiated by your Shipper. If a shipper had not actively invited you, please send a request to SAP Business Network for Logistics enablement team via email: sap.dsc.network.enablement@sap.com. Please provide below information in the mail
     *  Company Name
     *  Email address of contact person 
     *  Address

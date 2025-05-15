@@ -172,12 +172,7 @@ Free of charge Productive tenant for connectivity and transaction processing / d
 
 #### C. Requesting the productive tenant  
 
-* Usualy the process is initiated by your Shipper. If a shipper had not actively invited you, please send a request to SAP Business Network for Logistics enablement team via email: sap.dsc.network.enablement@sap.com. Please provide below information in the mail
-    *  Company Name
-    *  Email address of contact person 
-    *  Address
-    *  Phone Number
-    *  SCAC  ( if available )
+* The process is initiated by your Shipper - please contact your shipper.
 
 > [!TIP]
 >* You can follow the steps as described in the [help guide](https://help.sap.com/docs/business-network-freight-collaboration/activate-account/getting-started-with-sap-business-network-for-logistics-via-lightweight-onboarding?locale=en-US).  

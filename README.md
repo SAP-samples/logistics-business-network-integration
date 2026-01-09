@@ -3,12 +3,19 @@
 
 
 
-![](Upload/Resources/main.png)
+<< THIS GITHUB IS NO LONGER MAINTAINED - THE CONTENT OF THIS PAGE HAS BEEN TRANSFERRED TO https://help.sap.com/docs/business-network-logistics-provider?locale=en-US >>
 
-The goal of this page is to provide a description of the required steps and the required sequence of the same, in order to integrate against SAP Business Network for Logistics APIs. Therefore the content is targeting the developer persona, that has mostly worked as an integration specialist. The description is valid for both, SAP Business Network Freight Collaboration (FC), as well as SAP Business Network Global Track and Trace (GTT).
 
-Questions can be raised via the GitHub issues section within this repository. The issues section is being monitored actively - [**ask a question**](https://github.com/SAP-samples/logistics-business-network-integration/issues) and please also check the [FAQ section](https://github.com/SAP-samples/logistics-business-network-integration/wiki/FAQ).
-You might also want to take a look at the below [glossary](https://github.com/SAP-samples/logistics-business-network-integration#glossary).
+<< THIS GITHUB IS NO LONGER MAINTAINED 
+
+
+<< THIS GITHUB IS NO LONGER MAINTAINED 
+
+
+<< THIS GITHUB IS NO LONGER MAINTAINED 
+
+
+<< THIS GITHUB IS NO LONGER MAINTAINED 
 
 ## 0.) Get an overview of SAP Business Network for Logistics
 

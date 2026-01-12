@@ -5,14 +5,16 @@
 
 << THIS GITHUB IS NO LONGER MAINTAINED - THE CONTENT OF THIS PAGE HAS BEEN TRANSFERRED TO https://help.sap.com/docs/business-network-logistics-provider?locale=en-US >>
 
-
-<< THIS GITHUB IS NO LONGER MAINTAINED 
-
-
-<< THIS GITHUB IS NO LONGER MAINTAINED 
+How to integrate with SAP Business Network Freight Collaboration Guide:
+https://help.sap.com/doc/how-to-integrate-with-sap-business-network-freight-collaboration-carrier-apis/LBN/en-US/SAP_LBN_API_HowToGuide.pdf
 
 
-<< THIS GITHUB IS NO LONGER MAINTAINED 
+
+
+
+
+
+
 
 
 << THIS GITHUB IS NO LONGER MAINTAINED 
